@@ -4,6 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Recursos — Pós-graduação em Geriatria 2.0</title>
+<meta name="description" content="Página de apoio às aulas-pílula da Pós-graduação em Geriatria 2.0 da Afya: roteiros de consulta, orientações para imprimir e instrumentos de avaliação.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@300;400;600;700&display=swap">
@@ -12,21 +13,31 @@
 @media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--papel:#0E1522;--tinta:#EDF1F7;--fraca:#9EB0C9;--magenta:#FF4D93;--azul:#6FA8FF;--linha:#24324A;--cartao:#162032;color-scheme:dark}}
 :root[data-theme="dark"]{--papel:#0E1522;--tinta:#EDF1F7;--fraca:#9EB0C9;--magenta:#FF4D93;--azul:#6FA8FF;--linha:#24324A;--cartao:#162032;color-scheme:dark}
 *{box-sizing:border-box}
-body{margin:0;background:var(--papel);color:var(--tinta);font-family:"Hanken Grotesk",system-ui,sans-serif;line-height:1.55}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--papel);color:var(--tinta);font-family:"Hanken Grotesk",system-ui,sans-serif;line-height:1.58;-webkit-font-smoothing:antialiased}
 .gut{padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
 .wrap{max-width:720px;margin:0 auto}
-header .wrap{padding-block:40px 20px}
-.selo{font-size:12px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--magenta)}
-h1{margin:8px 0 0;font-size:clamp(24px,5vw,34px);font-weight:600;letter-spacing:-.02em;text-wrap:balance}
-.lede{margin:10px 0 0;color:var(--fraca);font-weight:300;max-width:56ch}
-main .wrap{padding-block:8px 56px}
-.lista{display:grid;gap:12px;margin-top:24px}
-.item{background:var(--cartao);border:1px solid var(--linha);border-radius:12px;padding:16px 18px}
-.item h2{margin:0;font-size:17px;font-weight:600}
-.item p{margin:4px 0 0;color:var(--fraca);font-size:15px;font-weight:300}
-.estado{display:inline-block;margin-top:10px;font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--azul)}
+header .wrap{padding-block:40px 18px}
+.selo{font-size:12px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--magenta);margin:0}
+h1{margin:9px 0 0;font-size:clamp(24px,5vw,34px);font-weight:600;letter-spacing:-.02em;text-wrap:balance}
+.lede{margin:11px 0 0;color:var(--fraca);font-weight:300;max-width:58ch}
+main .wrap{padding-block:8px 52px}
+h2.sec{margin:42px 0 4px;font-size:12px;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--magenta);padding-bottom:8px;border-bottom:1px solid var(--linha)}
+.secsub{margin:0 0 18px;color:var(--fraca);font-size:14.5px;font-weight:300;max-width:58ch}
+.lista{display:grid;gap:12px}
+.item{background:var(--cartao);border:1px solid var(--linha);border-radius:12px;padding:17px 19px;scroll-margin-top:16px}
+.item:target{border-color:var(--azul);box-shadow:inset 0 0 0 1px var(--azul)}
+.item h3{margin:0;font-size:17px;font-weight:600;letter-spacing:-.01em}
+.item p{margin:6px 0 0;color:var(--tinta);font-size:15px;font-weight:300}
+.item p.nota{color:var(--fraca);font-size:14px}
+.item ul{margin:8px 0 0;padding-left:19px;color:var(--tinta);font-size:15px;font-weight:300}
+.item li{margin-bottom:3px}
+.estado{display:inline-block;margin-top:11px;font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--azul)}
+.atalho{display:inline-block;margin-top:11px;margin-right:9px;font-size:11px;font-weight:700;letter-spacing:.06em;color:var(--fraca);border:1px solid var(--linha);border-radius:5px;padding:2px 7px}
 footer{border-top:1px solid var(--linha);margin-top:40px}
-footer .wrap{padding-block:20px 40px;color:var(--fraca);font-size:13px;font-weight:300}
+footer .wrap{padding-block:22px 44px;color:var(--fraca);font-size:13px;font-weight:300}
+footer p{margin:0 0 9px;max-width:62ch}
+footer b{font-weight:600;color:var(--tinta)}
 a{color:var(--azul)}
 </style>
 </head>
@@ -34,20 +45,123 @@ a{color:var(--azul)}
 <header><div class="wrap gut">
   <p class="selo">Pós-graduação em Geriatria 2.0 · Afya</p>
   <h1>Recursos de apoio à prática e ao estudo</h1>
-  <p class="lede">Materiais selecionados pelo conteudista para uso durante e depois das aulas. Esta página é atualizada ao longo do curso; o endereço impresso nos slides não muda.</p>
+  <p class="lede">Material de apoio às aulas-pílula, preparado pelo conteudista do curso. Esta página é atualizada ao longo do curso; o endereço impresso nos slides não muda.</p>
 </div></header>
+
 <main><div class="wrap gut">
+
+  <h2 class="sec">Para usar na consulta</h2>
+  <p class="secsub">Roteiros curtos, pensados para caber no tempo real de um atendimento.</p>
   <div class="lista">
-    <div class="item"><h2>Revisão de medicações</h2><p>Roteiro prático de desprescrição com os critérios STOPP/START e Beers, em formato de checklist para a consulta.</p><span class="estado">Em preparação</span></div>
-    <div class="item"><h2>Orientações ao paciente idoso e ao cuidador</h2><p>Folhas de orientação em linguagem simples, para imprimir e entregar no consultório.</p><span class="estado">Em preparação</span></div>
-    <div class="item"><h2>Leitura de bula na pessoa idosa</h2><p>O que muda ao ler uma bula quando o paciente tem 80 anos: função renal, anticolinérgicos, interações.</p><span class="estado">Em preparação</span></div>
-    <div class="item"><h2>Direitos da pessoa idosa</h2><p>Estatuto da Pessoa Idosa e direitos do paciente, explicados do ponto de vista da prática clínica.</p><span class="estado">Em preparação</span></div>
-    <div class="item"><h2>Escalas e instrumentos</h2><p>Versões oficiais em português dos instrumentos citados nas aulas, com instruções de aplicação.</p><span class="estado">Em preparação</span></div>
+
+    <div class="item" id="anticolinergica">
+      <h3>Carga anticolinérgica</h3>
+      <p>A soma dos anticolinérgicos é mais importante que qualquer um deles isolado: três fármacos de carga baixa pesam mais que um de carga alta, e é essa soma que se associa a queda, retenção urinária, boca seca, constipação e piora cognitiva.</p>
+      <p class="nota">Os que mais aparecem na receita brasileira sem ninguém notar: dimenidrinato, prometazina, hidroxizina e difenidramina (antialérgicos e antivertiginosos de venda livre), amitriptilina e nortriptilina, oxibutinina, ciclobenzaprina, escopolamina, biperideno, clorpromazina, e a ranitidina ainda em uso informal. Vale rever a lista inteira antes de acrescentar o próximo.</p>
+      <span class="estado">Ferramenta de cálculo em preparação</span>
+      <span class="atalho">awsys.co/anticolinergica</span>
+    </div>
+
+    <div class="item" id="eem">
+      <h3>Exame do estado mental estruturado</h3>
+      <p>Um roteiro que separa o que se observa do que se testa: nível de consciência e atenção, orientação, linguagem, memória, função executiva, humor, pensamento e juízo crítico — na ordem em que fazem sentido clínico, porque um déficit de atenção invalida a leitura de todo o resto.</p>
+      <p class="nota">Serve também como modelo de registro em prontuário: a descrição do achado vale mais que o escore isolado, e é ela que sustenta a conduta.</p>
+      <span class="estado">Roteiro e gerador de texto em preparação</span>
+      <span class="atalho">awsys.co/eem</span>
+    </div>
+
+    <div class="item" id="aga">
+      <h3>Avaliação geriátrica ampla</h3>
+      <p>O roteiro que organiza a consulta em domínios: clínico e medicações, funcional (atividades básicas e instrumentais), mobilidade e quedas, cognição, humor, nutrição, continência, sono, dor, sensorial, social e rede de apoio, e diretivas de cuidado.</p>
+      <p class="nota">A utilidade não está em preencher tudo, e sim em saber qual domínio foi deixado de fora — porque é quase sempre lá que está o problema que ninguém resolveu.</p>
+      <span class="estado">Roteiro e laudo em PDF em preparação</span>
+      <span class="atalho">awsys.co/aga</span>
+    </div>
+
+    <div class="item" id="mrpa">
+      <h3>Monitorização residencial da pressão</h3>
+      <p>Medir em casa resolve o que o consultório não resolve: hipertensão do avental branco, hipertensão mascarada e a dúvida sobre hipotensão após as doses. Na pessoa idosa isso muda conduta com frequência, porque o risco de tratar demais é real.</p>
+      <p class="nota">O protocolo padrão são medidas em dois momentos do dia, por vários dias consecutivos, com duas a três aferições em cada momento, sentado e em repouso, descartando o primeiro dia na hora de calcular a média.</p>
+      <span class="estado">Planilha de registro e laudo em preparação</span>
+      <span class="atalho">awsys.co/mrpa</span>
+    </div>
+
+    <div class="item" id="comunicacao">
+      <h3>Comunicação clínica</h3>
+      <p>Dar notícia difícil e falar de diretivas antecipadas de vontade são procedimentos, com etapas e com erros previsíveis — e a etapa que mais se pula é a de descobrir o quanto a pessoa quer saber antes de contar.</p>
+      <p class="nota">Inclui roteiro de conversa, perguntas que abrem o diálogo sem forçar, e como registrar a vontade manifestada de modo que ela seja encontrada quando for necessária.</p>
+      <span class="estado">Roteiros em preparação</span>
+      <span class="atalho">awsys.co/comunicacao</span>
+    </div>
+
+    <div class="item" id="pcd">
+      <h3>Laudo de pessoa com deficiência</h3>
+      <p>Um laudo malfeito custa à pessoa o benefício, o transporte, a isenção ou a vaga — e costuma ser recusado por falta de descrição funcional, não por falta de diagnóstico. O que decide é a descrição da limitação na vida diária, com CID e com a correlação entre uma coisa e a outra.</p>
+      <span class="estado">Gerador de laudo em preparação</span>
+      <span class="atalho">awsys.co/pcd</span>
+    </div>
   </div>
+
+  <h2 class="sec">Para entregar ao paciente e à família</h2>
+  <p class="secsub">Material em linguagem simples, feito para imprimir e sair do consultório na mão de alguém.</p>
+  <div class="lista">
+
+    <div class="item" id="bula">
+      <h3>Leitura de bula na pessoa idosa</h3>
+      <p>O que muda ao ler uma bula quando o paciente tem oitenta anos: a dose do adulto jovem raramente serve, a função renal reduz quase sempre sem que a creatinina avise, e os efeitos anticolinérgicos e sedativos somam entre remédios diferentes.</p>
+      <p class="nota">Também o que a bula não diz: que remédio de venda livre conta, que chá e suplemento interagem, e que a lista completa só aparece quando se pede para trazer todas as caixas de casa.</p>
+      <span class="estado">Consulta por medicamento em preparação</span>
+      <span class="atalho">awsys.co/bula</span>
+    </div>
+
+    <div class="item" id="idoso">
+      <h3>Orientações à pessoa idosa</h3>
+      <p>Folhas em letra grande e linguagem direta, para imprimir e entregar: cuidados do dia a dia, sinais que merecem procurar atendimento, organização dos remédios por horário, e o que levar e o que perguntar na próxima consulta.</p>
+      <span class="estado">Em preparação</span>
+      <span class="atalho">awsys.co/idoso</span>
+    </div>
+
+    <div class="item" id="cuidador">
+      <h3>Guia do cuidador</h3>
+      <p>Para quem cuida: reconhecer a própria sobrecarga antes do esgotamento, dividir tarefas em vez de acumular, montar rede de apoio, e conhecer os direitos que a família costuma descobrir tarde demais para usar.</p>
+      <span class="estado">Em preparação</span>
+      <span class="atalho">awsys.co/cuidador</span>
+    </div>
+
+    <div class="item" id="direitos">
+      <h3>Direitos da pessoa idosa</h3>
+      <p>O Estatuto da Pessoa Idosa (Lei 10.741/2003) e os direitos do paciente, do ponto de vista de quem precisa usá-los: atendimento prioritário, gratuidade no transporte, medicamento pelo SUS, isenção de imposto de renda por doença grave, BPC, e a quem recorrer quando um deles é negado.</p>
+      <p class="nota">Os textos legais serão reproduzidos a partir da fonte oficial, com a data da versão consultada.</p>
+      <span class="estado">Em preparação</span>
+      <span class="atalho">awsys.co/direitos</span>
+    </div>
+  </div>
+
+  <h2 class="sec">Escalas e instrumentos</h2>
+  <p class="secsub">Com uma regra que vale a pena explicar.</p>
+  <div class="lista">
+    <div class="item" id="escalas">
+      <h3>Onde encontrar cada instrumento</h3>
+      <p>Boa parte dos instrumentos citados nas aulas tem titular de direitos, e alguns proíbem expressamente versão eletrônica ou republicação em outro site. Por isso esta página <b>não reproduz</b> esses instrumentos: ela explica quando usar cada um, como interpretar, e encaminha para a fonte oficial, que é onde a versão válida e a tradução autorizada estão.</p>
+      <ul>
+        <li><b>MoCA</b> — somente pelo site oficial, que exige treinamento e cadastro.</li>
+        <li><b>MEEM</b> — titular comercial; usar a versão licenciada da instituição.</li>
+        <li><b>FRAX</b> — calculadora oficial, com os coeficientes do titular.</li>
+        <li><b>4AT</b> (delirium) — licença aberta: este é reproduzível, com atribuição, e será disponibilizado aqui na íntegra.</li>
+        <li><b>Katz, Lawton, CFS, FRAIL, TUG, Fried</b> — descritos na literatura; aplicação e pontos de corte serão explicados aqui.</li>
+      </ul>
+      <p class="nota">Essa distinção não é formalidade: é o que permite que a página exista sem depender da boa vontade de ninguém.</p>
+    </div>
+  </div>
+
 </div></main>
+
 <footer><div class="wrap gut">
-  Conteúdo de apoio educacional. Não substitui avaliação clínica individual.<br>
-  Dr. José Dias Linhares Júnior · CRM-RS 49835 · RQE 41886
+  <p>Material de apoio educacional, dirigido a profissionais e a pessoas sob cuidado. <b>Não substitui a avaliação clínica individual</b> e não emite diagnóstico. Nenhuma informação digitada nesta página é enviada, transmitida ou armazenada: as ferramentas, quando entrarem, funcionarão inteiramente no navegador de quem as usa.</p>
+  <p>Esta página mede apenas audiência agregada — quantos acessos e por qual aula — sem identificar pessoas e sem construir perfil.</p>
+  <p><b>Dr. José Dias Linhares Júnior</b><br>
+  Médico · CRM-RS 49835 · Medicina de Família e Comunidade, RQE 41886<br>
+  Conteudista da Pós-graduação em Geriatria 2.0</p>
 </div></footer>
 </body>
 </html>
