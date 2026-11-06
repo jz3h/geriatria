@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>CKD-EPI 2021 — estimativa da taxa de filtração glomerular</title>
+<meta name="description" content="Calculadora CKD-EPI 2021 sem o coeficiente de raça, com a fórmula exposta, estadiamento KDIGO e as ressalvas que importam na pessoa idosa.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@300;400;600;700&display=swap">
+<link rel="stylesheet" href="_base.css">
+</head>
+<body>
+<header><div class="wrap gut">
+  <a class="volta" href="../#anticolinergica">&larr; Recursos de apoio</a>
+  <h1>CKD-EPI 2021</h1>
+  <p class="lede">Estimativa da taxa de filtração glomerular a partir da creatinina, na equação de 2021 — a que removeu o coeficiente de raça. Nada do que você digitar sai deste aparelho.</p>
+</div></header>
+
+<main><div class="wrap gut">
+
+  <div class="card">
+    <h2>Dados</h2>
+    <div class="grade">
+      <div class="campo">
+        <label for="cr">Creatinina sérica</label>
+        <p class="hint">em mg/dL</p>
+        <input type="number" id="cr" step="0.01" min="0.1" max="20" inputmode="decimal" placeholder="1,10">
+      </div>
+      <div class="campo">
+        <label for="idade">Idade</label>
+        <p class="hint">em anos</p>
+        <input type="number" id="idade" step="1" min="18" max="120" inputmode="numeric" placeholder="78">
+      </div>
+    </div>
+    <div class="campo">
+      <label>Sexo</label>
+      <p class="hint">A equação usa dois coeficientes diferentes.</p>
+      <div class="radios">
+        <label><input type="radio" name="sexo" value="f"> Feminino</label>
+        <label><input type="radio" name="sexo" value="m"> Masculino</label>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>Resultado</h2>
+    <div class="res" id="res"><span class="vazio">Preencha a creatinina, a idade e o sexo.</span></div>
+    <p class="nota" id="aviso"></p>
+  </div>
+
+  <div class="card">
+    <h2>Estadiamento KDIGO</h2>
+    <table>
+      <thead><tr><th>Categoria</th><th>TFG estimada</th><th>Descrição</th></tr></thead>
+      <tbody>
+        <tr data-g="G1"><td>G1</td><td>&ge; 90</td><td>Normal ou alta</td></tr>
+        <tr data-g="G2"><td>G2</td><td>60 – 89</td><td>Levemente reduzida</td></tr>
+        <tr data-g="G3a"><td>G3a</td><td>45 – 59</td><td>Leve a moderadamente reduzida</td></tr>
+        <tr data-g="G3b"><td>G3b</td><td>30 – 44</td><td>Moderada a gravemente reduzida</td></tr>
+        <tr data-g="G4"><td>G4</td><td>15 – 29</td><td>Gravemente reduzida</td></tr>
+        <tr data-g="G5"><td>G5</td><td>&lt; 15</td><td>Falência renal</td></tr>
+      </tbody>
+    </table>
+    <p class="nota">A categoria G sozinha não estadia a doença renal crônica: o estadiamento completo exige também a albuminúria (A1 a A3) e a persistência por mais de três meses.</p>
+  </div>
+
+  <div class="card">
+    <h2>A conta, inteira</h2>
+    <div class="formula">TFGe = 142 × min(Cr/κ, 1)^α × max(Cr/κ, 1)^(−1,200) × 0,9938^idade × 1,012 (se feminino)
+
+κ = 0,7 (feminino)    0,9 (masculino)
+α = −0,241 (feminino)  −0,302 (masculino)
+
+Resultado em mL/min/1,73 m²</div>
+    <p class="nota">A fórmula está aqui à mostra de propósito: quem usa precisa poder ver o que a página fez com o número que digitou. Equação de Inker e colaboradores, <i>New England Journal of Medicine</i>, 2021 — a versão sem o coeficiente de raça, hoje recomendada.</p>
+  </div>
+
+  <div class="card">
+    <h2>O que a creatinina esconde na pessoa idosa</h2>
+    <p class="nota"><b>Creatinina normal não quer dizer rim normal.</b> A creatinina vem da massa muscular. Em sarcopenia, imobilidade, desnutrição ou amputação, ela cai por falta de músculo — e a TFG estimada sai mais alta que a real. É o erro que faz uma pessoa de 85 anos com 0,8 mg/dL receber dose plena de um fármaco que o rim dela não dá conta de eliminar.</p>
+    <p class="nota"><b>Quando a estimativa não serve:</b> lesão renal aguda ou creatinina em mudança, gestação, extremos de massa corporal, dieta rica em carne ou uso de creatina nos dias anteriores, e fármacos que elevam a creatinina sem mexer na filtração — trimetoprima, cimetidina, dolutegravir. Nesses casos, cistatina C ou a equação combinada estimam melhor.</p>
+    <p class="nota"><b>Para ajustar dose de medicamento</b>, confira o que a bula e a referência de ajuste pedem: boa parte foi validada com a depuração de creatinina por Cockcroft-Gault, não com a TFG indexada por superfície corporal. Para fármacos de janela estreita, a diferença entre as duas muda a dose.</p>
+  </div>
+
+</div></main>
+
+<footer><div class="wrap gut">
+  <p>Ferramenta de apoio ao raciocínio clínico. <b>Não substitui a avaliação clínica individual</b> e não emite diagnóstico. O cálculo acontece inteiramente no navegador: nenhum dado é enviado, transmitido ou armazenado.</p>
+  <p>Dr. José Dias Linhares Júnior · CRM-RS 49835 · Medicina de Família e Comunidade, RQE 41886</p>
+</div></footer>
+
+<script>
+const cr=document.getElementById('cr'), idade=document.getElementById('idade'), res=document.getElementById('res'), aviso=document.getElementById('aviso');
+function cat(g){ if(g>=90)return['G1','Normal ou alta']; if(g>=60)return['G2','Levemente reduzida']; if(g>=45)return['G3a','Leve a moderadamente reduzida']; if(g>=30)return['G3b','Moderada a gravemente reduzida']; if(g>=15)return['G4','Gravemente reduzida']; return['G5','Falência renal']; }
+function calc(){
+  const sexoEl=document.querySelector('input[name=sexo]:checked');
+  const c=parseFloat(String(cr.value).replace(',','.')), a=parseFloat(idade.value);
+  document.querySelectorAll('tbody tr').forEach(t=>t.classList.remove('aqui'));
+  if(!sexoEl||!isFinite(c)||!isFinite(a)||c<=0||a<=0){
+    res.innerHTML='<span class="vazio">Preencha a creatinina, a idade e o sexo.</span>'; aviso.textContent=''; return;
+  }
+  const f = sexoEl.value==='f';
+  const k = f?0.7:0.9, alfa = f?-0.241:-0.302;
+  const r = c/k;
+  let g = 142 * Math.pow(Math.min(r,1),alfa) * Math.pow(Math.max(r,1),-1.200) * Math.pow(0.9938,a);
+  if(f) g *= 1.012;
+  const v = Math.round(g*10)/10;
+  const [cg,desc] = cat(v);
+  res.innerHTML='<div class="n">'+v.toFixed(1).replace('.',',')+' <span class="u">mL/min/1,73 m²</span></div>'+
+    '<div class="leitura">Categoria <b>'+cg+'</b> — '+desc+'</div>';
+  const linha=document.querySelector('tbody tr[data-g="'+cg+'"]'); if(linha) linha.classList.add('aqui');
+  let av=[];
+  if(a>=80) av.push('Acima de 80 anos a creatinina costuma subestimar a perda de função: se houver sarcopenia, a filtração real é menor que esta.');
+  if(c<0.7) av.push('Creatinina abaixo de 0,7 mg/dL em pessoa idosa sugere pouca massa muscular, e nesse caso a estimativa fica otimista.');
+  if(v<30) av.push('Abaixo de 30 mL/min há fármaco a suspender e dose a rever: confira a lista de medicações em uso.');
+  aviso.innerHTML = av.map(t=>'<b>·</b> '+t).join('<br>');
+}
+[cr,idade].forEach(e=>e.addEventListener('input',calc));
+document.querySelectorAll('input[name=sexo]').forEach(e=>e.addEventListener('change',calc));
+</script>
+</body>
+</html>

@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>TUG — Timed Up and Go, com cronômetro</title>
+<meta name="description" content="Teste Timed Up and Go com cronômetro, procedimento padronizado e os pontos de corte com a fonte de cada um.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@300;400;600;700&display=swap">
+<link rel="stylesheet" href="_base.css">
+</head>
+<body>
+<header><div class="wrap gut">
+  <a class="volta" href="../#aga">&larr; Recursos de apoio</a>
+  <h1>Timed Up and Go</h1>
+  <p class="lede">O teste de mobilidade que caber no consultório: uma cadeira, três metros de chão e um cronômetro. É o celular que vira o instrumento.</p>
+</div></header>
+
+<main><div class="wrap gut">
+
+  <div class="card">
+    <h2>Cronômetro</h2>
+    <div class="cron" id="cron">0,00<span class="u" style="font-size:.4em"> s</span></div>
+    <div class="botoes">
+      <button class="bt" id="bt">Iniciar</button>
+      <button class="bt sec" id="zerar">Zerar</button>
+    </div>
+    <p class="nota">Dispara ao comando "vai" e para quando as costas tocam o respaldo de novo. Espaço e Enter também acionam o botão.</p>
+  </div>
+
+  <div class="card">
+    <h2>Leitura</h2>
+    <div class="res" id="res"><span class="vazio">Faça o teste, ou digite o tempo abaixo.</span></div>
+    <div class="campo" style="margin-top:15px">
+      <label for="manual">Tempo medido, se preferir digitar</label>
+      <p class="hint">em segundos</p>
+      <input type="number" id="manual" step="0.1" min="1" max="180" inputmode="decimal" placeholder="14,2">
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>Os pontos de corte, e de onde vêm</h2>
+    <table>
+      <thead><tr><th>Tempo</th><th>Leitura</th><th>Fonte</th></tr></thead>
+      <tbody>
+        <tr data-f="a"><td>&lt; 10 s</td><td>Mobilidade livre</td><td>Podsiadlo &amp; Richardson, 1991</td></tr>
+        <tr data-f="b"><td>10 – 11,9 s</td><td>Mobilidade preservada, abaixo do limiar de risco</td><td>—</td></tr>
+        <tr data-f="c"><td>&ge; 12 s</td><td>Risco aumentado de queda</td><td>CDC STEADI</td></tr>
+        <tr data-f="d"><td>&ge; 13,5 s</td><td>Risco de queda em idoso da comunidade</td><td>Shumway-Cook et al., 2000</td></tr>
+        <tr data-f="e"><td>&ge; 20 s</td><td>Mobilidade comprometida; avaliar auxílio e ambiente</td><td>Podsiadlo &amp; Richardson, 1991</td></tr>
+        <tr data-f="f"><td>&ge; 30 s</td><td>Dependência para atividades de vida diária</td><td>Podsiadlo &amp; Richardson, 1991</td></tr>
+      </tbody>
+    </table>
+    <p class="nota"><b>Os cortes não são unânimes, e isso não é defeito do teste.</b> O limiar de 12 s é o da ferramenta de triagem do CDC, escolhido para ser sensível; o de 13,5 s vem de um estudo de predição em idosos da comunidade. Um serviço escolhe um e usa sempre o mesmo, porque o valor do TUG está mais na comparação com o próprio paciente ao longo do tempo do que no corte isolado. Uma piora de três segundos entre duas consultas diz mais que qualquer tabela.</p>
+  </div>
+
+  <div class="card">
+    <h2>Como fazer, para o número valer algo</h2>
+    <p class="nota"><b>Montagem:</b> cadeira com braços e respaldo firme, altura de assento em torno de 46 cm, encostada na parede para não deslizar. Três metros marcados no chão, com uma fita ou um cone no ponto de retorno.</p>
+    <p class="nota"><b>Instrução:</b> "Quando eu disser vai, levante da cadeira, caminhe até a marca no seu ritmo normal e com segurança, volte e sente-se de novo."</p>
+    <p class="nota"><b>Regras:</b> calçado habitual; bengala ou andador permitidos e <b>registrados</b>; sem apoio de outra pessoa; um ensaio antes da medida valendo; braços podem ser usados para levantar.</p>
+    <p class="nota"><b>Registre junto com o tempo:</b> o auxílio usado, se precisou de mais de uma tentativa para levantar, se houve desequilíbrio ou passos curtos na virada, e se o paciente conversou durante o trajeto. A qualidade da marcha é informação clínica, não observação acessória.</p>
+    <p class="nota"><b>Segurança:</b> alguém ao lado em quem já caiu ou tem desequilíbrio evidente. O teste não vale um tombo.</p>
+  </div>
+
+</div></main>
+
+<footer><div class="wrap gut">
+  <p>Ferramenta de apoio ao raciocínio clínico. <b>Não substitui a avaliação clínica individual</b> e não emite diagnóstico. O cronômetro funciona inteiramente no navegador: nenhum dado é enviado, transmitido ou armazenado.</p>
+  <p>Dr. José Dias Linhares Júnior · CRM-RS 49835 · Medicina de Família e Comunidade, RQE 41886</p>
+</div></footer>
+
+<script>
+const cronEl=document.getElementById('cron'), bt=document.getElementById('bt'), zerar=document.getElementById('zerar'),
+      res=document.getElementById('res'), manual=document.getElementById('manual');
+let t0=null, raf=null, parado=0;
+function fmt(s){ return s.toFixed(2).replace('.',','); }
+function pinta(s){ cronEl.innerHTML = fmt(s)+'<span class="u" style="font-size:.4em"> s</span>'; }
+function tick(){ const s=(performance.now()-t0)/1000; pinta(s); raf=requestAnimationFrame(tick); }
+function leitura(s){
+  document.querySelectorAll('tbody tr').forEach(r=>r.classList.remove('aqui'));
+  if(!isFinite(s)||s<=0){ res.innerHTML='<span class="vazio">Faça o teste, ou digite o tempo abaixo.</span>'; return; }
+  let chave, texto;
+  if(s>=30){chave='f';texto='Dependência para atividades de vida diária é provável. Avaliação funcional completa e rede de apoio.';}
+  else if(s>=20){chave='e';texto='Mobilidade comprometida. Avaliar auxílio de marcha, ambiente da casa e indicação de fisioterapia.';}
+  else if(s>=13.5){chave='d';texto='Acima do limiar de predição de queda em idoso da comunidade. Investigar causas e intervir.';}
+  else if(s>=12){chave='c';texto='Acima do limiar de triagem do CDC: risco aumentado de queda.';}
+  else if(s>=10){chave='b';texto='Abaixo do limiar de risco, mas vale repetir na próxima consulta para ter base de comparação.';}
+  else {chave='a';texto='Mobilidade livre.';}
+  res.innerHTML='<div class="n">'+fmt(s)+' <span class="u">segundos</span></div><div class="leitura">'+texto+'</div>';
+  const l=document.querySelector('tbody tr[data-f="'+chave+'"]'); if(l) l.classList.add('aqui');
+}
+bt.addEventListener('click',()=>{
+  if(raf){ cancelAnimationFrame(raf); raf=null; parado=(performance.now()-t0)/1000; bt.textContent='Iniciar'; leitura(parado); manual.value=''; }
+  else { t0=performance.now(); bt.textContent='Parar'; raf=requestAnimationFrame(tick); }
+});
+zerar.addEventListener('click',()=>{
+  if(raf){cancelAnimationFrame(raf);raf=null;} bt.textContent='Iniciar'; parado=0; pinta(0); manual.value=''; leitura(NaN);
+});
+manual.addEventListener('input',()=>{ const s=parseFloat(String(manual.value).replace(',','.')); if(isFinite(s)){pinta(s); leitura(s);} else leitura(NaN); });
+pinta(0);
+</script>
+</body>
+</html>

@@ -1,0 +1,48 @@
+:root{--papel:#FAF8F4;--tinta:#041E42;--fraca:#5A6A86;--magenta:#CE0058;--azul:#0057B7;--linha:#E4DFD6;--cartao:#fff;--ok:#1F5C4A;--atencao:#9A3412}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--papel:#0E1522;--tinta:#EDF1F7;--fraca:#9EB0C9;--magenta:#FF4D93;--azul:#6FA8FF;--linha:#24324A;--cartao:#162032;--ok:#5FCFA8;--atencao:#FDBA74;color-scheme:dark}}
+:root[data-theme="dark"]{--papel:#0E1522;--tinta:#EDF1F7;--fraca:#9EB0C9;--magenta:#FF4D93;--azul:#6FA8FF;--linha:#24324A;--cartao:#162032;--ok:#5FCFA8;--atencao:#FDBA74;color-scheme:dark}
+*{box-sizing:border-box}
+body{margin:0;background:var(--papel);color:var(--tinta);font-family:"Hanken Grotesk",system-ui,sans-serif;line-height:1.58;-webkit-font-smoothing:antialiased}
+.gut{padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+.wrap{max-width:680px;margin:0 auto}
+header .wrap{padding-block:30px 14px}
+.volta{font-size:13px;color:var(--fraca);text-decoration:none;font-weight:600}
+.volta:hover{color:var(--azul)}
+h1{margin:12px 0 0;font-size:clamp(23px,5vw,31px);font-weight:600;letter-spacing:-.02em;text-wrap:balance}
+.lede{margin:9px 0 0;color:var(--fraca);font-weight:300;max-width:58ch}
+main .wrap{padding-block:10px 50px}
+.card{background:var(--cartao);border:1px solid var(--linha);border-radius:13px;padding:20px;margin-top:18px}
+.card h2{margin:0 0 12px;font-size:12px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--magenta)}
+label{display:block;font-size:14px;font-weight:600;margin-bottom:5px}
+.hint{font-size:13px;color:var(--fraca);font-weight:300;margin:0 0 9px}
+input[type=number],select{width:100%;font:inherit;font-size:17px;padding:11px 13px;border:1px solid var(--linha);border-radius:9px;background:var(--papel);color:var(--tinta)}
+input:focus,select:focus{outline:2px solid var(--azul);outline-offset:1px;border-color:transparent}
+.grade{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+@media(max-width:460px){.grade{grid-template-columns:1fr}}
+.campo{margin-bottom:15px}
+.radios{display:flex;gap:8px;flex-wrap:wrap}
+.radios label{display:inline-flex;align-items:center;gap:7px;font-weight:400;font-size:16px;border:1px solid var(--linha);border-radius:9px;padding:10px 15px;cursor:pointer;background:var(--papel);margin:0}
+.radios input{accent-color:var(--azul)}
+.res{margin-top:4px;padding:18px 20px;border-radius:12px;border:1px solid var(--linha);background:var(--papel)}
+.res .n{font-size:clamp(30px,8vw,42px);font-weight:700;letter-spacing:-.03em;line-height:1.05}
+.res .u{font-size:15px;font-weight:400;color:var(--fraca)}
+.res .leitura{margin-top:9px;font-size:16px}
+.res .leitura b{font-weight:700}
+.vazio{color:var(--fraca);font-weight:300;font-size:16px}
+table{width:100%;border-collapse:collapse;font-size:14.5px;margin-top:4px}
+th,td{text-align:left;padding:8px 9px;border-bottom:1px solid var(--linha)}
+th{font-size:12px;text-transform:uppercase;letter-spacing:.08em;color:var(--fraca);font-weight:700}
+tr.aqui{background:color-mix(in srgb, var(--azul) 11%, transparent)}
+tr.aqui td{font-weight:700}
+.formula{font-family:ui-monospace,"SF Mono",Menlo,monospace;font-size:13px;background:var(--papel);border:1px solid var(--linha);border-radius:9px;padding:13px;overflow-x:auto;white-space:pre;color:var(--tinta)}
+.cron{font-variant-numeric:tabular-nums;font-size:clamp(42px,14vw,64px);font-weight:700;letter-spacing:-.04em;line-height:1}
+.bt{font:inherit;font-size:16px;font-weight:600;padding:13px 24px;border-radius:10px;border:1px solid var(--azul);background:var(--azul);color:#fff;cursor:pointer}
+.bt.sec{background:transparent;color:var(--tinta);border-color:var(--linha)}
+.bt:active{transform:translateY(1px)}
+.botoes{display:flex;gap:10px;margin-top:14px;flex-wrap:wrap}
+.nota{font-size:14px;color:var(--fraca);font-weight:300;margin:11px 0 0}
+.nota b{color:var(--tinta);font-weight:600}
+footer{border-top:1px solid var(--linha);margin-top:34px}
+footer .wrap{padding-block:18px 40px;color:var(--fraca);font-size:13px;font-weight:300}
+footer p{margin:0 0 8px;max-width:62ch}
+a{color:var(--azul)}
