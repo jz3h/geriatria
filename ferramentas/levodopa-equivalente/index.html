@@ -1,0 +1,157 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Dose equivalente de levodopa (LEDD)</title>
+<meta name="description" content="Some a carga dopaminérgica diária de todo o esquema antiparkinsoniano com os fatores de conversão atualizados em 2023.">
+<meta name="robots" content="index,follow">
+<style>
+:root{--papel:#F7F5F0;--cartao:#FFFFFF;--tinta:#10233F;--fraca:#55657E;--linha:#E2DDD3;--acento:#0F766E;--acento-2:#0B5C56;--acento-soft:#E3F2EF;
+--ok:#166534;--ok-soft:#E5F4EA;--medio:#9A5B00;--medio-soft:#FDF0D9;--alto:#B42318;--alto-soft:#FDE7E5;--foco:#F2B705;color-scheme:light}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--papel:#0D1522;--cartao:#152034;--tinta:#E9EEF6;--fraca:#A0AFC6;--linha:#26344C;--acento:#38BDB0;--acento-2:#5FD3C7;--acento-soft:#123532;
+--ok:#6EE7A0;--ok-soft:#123323;--medio:#F5B94D;--medio-soft:#3A2A0F;--alto:#FF8A80;--alto-soft:#3D1715;color-scheme:dark}}
+:root[data-theme="dark"]{--papel:#0D1522;--cartao:#152034;--tinta:#E9EEF6;--fraca:#A0AFC6;--linha:#26344C;--acento:#38BDB0;--acento-2:#5FD3C7;--acento-soft:#123532;
+--ok:#6EE7A0;--ok-soft:#123323;--medio:#F5B94D;--medio-soft:#3A2A0F;--alto:#FF8A80;--alto-soft:#3D1715;color-scheme:dark}
+*{box-sizing:border-box}html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
+body{margin:0;background:var(--papel);color:var(--tinta);font:17px/1.55 "Atkinson Hyperlegible","Segoe UI",system-ui,-apple-system,Roboto,sans-serif;overflow-x:hidden}
+.gut{padding-inline:max(16px,env(safe-area-inset-left,0px))}
+.wrap{max-width:720px;margin:0 auto}
+header{border-bottom:1px solid var(--linha)}
+header .wrap{padding-block:22px 18px}
+.kick{margin:0;font-size:12px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--acento)}
+h1{margin:6px 0 0;font-size:clamp(25px,6.4vw,34px);line-height:1.15;letter-spacing:-.02em;text-wrap:balance}
+.lede{margin:10px 0 0;color:var(--fraca);max-width:60ch}
+main .wrap{padding-block:14px 40px}
+h2{font-size:20px;margin:30px 0 8px;letter-spacing:-.01em}
+h3{font-size:17px;margin:18px 0 6px}
+p{margin:0 0 10px}
+a{color:var(--acento-2);text-underline-offset:3px}
+.card{background:var(--cartao);border:1px solid var(--linha);border-radius:14px;padding:16px;margin:14px 0}
+.aviso{font-size:14.5px;background:var(--acento-soft);border-radius:12px;padding:12px 14px;margin:14px 0 0}
+.aviso b{color:var(--tinta)}
+.q{border-top:1px solid var(--linha);padding:14px 0}
+.q:first-of-type{border-top:0;padding-top:0}
+.q>p.t{font-weight:700;margin:0 0 8px}
+.q>p.h{color:var(--fraca);font-size:14.5px;margin:-4px 0 8px}
+.opts{display:grid;gap:8px}
+label.op{display:flex;gap:10px;align-items:flex-start;min-height:48px;padding:11px 12px;border:1.5px solid var(--linha);border-radius:11px;cursor:pointer;background:var(--cartao)}
+label.op:has(input:checked){border-color:var(--acento);background:var(--acento-soft)}
+label.op input{margin:3px 0 0;width:20px;height:20px;accent-color:var(--acento);flex:none}
+label.op span small{display:block;color:var(--fraca);font-size:14px}
+.pts{margin-left:auto;font-variant-numeric:tabular-nums;color:var(--fraca);font-size:14px;white-space:nowrap}
+.row{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px}
+.row2{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.fld label{display:block;font-size:13.5px;color:var(--fraca);margin-bottom:4px}
+input[type=number],input[type=search],select{width:100%;min-height:48px;font:inherit;color:var(--tinta);background:var(--cartao);border:1.5px solid var(--linha);border-radius:10px;padding:10px 12px}
+input:focus-visible,select:focus-visible,button:focus-visible,label.op:focus-within{outline:3px solid var(--foco);outline-offset:2px}
+button{font:inherit;font-weight:700;min-height:48px;border-radius:11px;border:1.5px solid var(--acento);background:var(--acento);color:#fff;padding:10px 16px;cursor:pointer}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) button{color:#06201D}}
+:root[data-theme="dark"] button{color:#06201D}
+button.sec{background:transparent;color:var(--acento-2)}
+.btns{display:flex;flex-wrap:wrap;gap:10px;margin-top:14px}
+.res{border-radius:14px;padding:16px;margin:16px 0;border:1.5px solid var(--linha);background:var(--cartao)}
+.res[data-n="ok"]{background:var(--ok-soft);border-color:var(--ok)}
+.res[data-n="medio"]{background:var(--medio-soft);border-color:var(--medio)}
+.res[data-n="alto"]{background:var(--alto-soft);border-color:var(--alto)}
+.res .big{font-size:30px;font-weight:800;letter-spacing:-.02em;line-height:1.1;margin:0 0 4px;font-variant-numeric:tabular-nums}
+.res .rot{font-weight:700;margin:0 0 8px}
+.res ul{margin:6px 0 0;padding-left:20px}
+.res li{margin:3px 0}
+.tag{display:inline-block;font-size:12px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;border-radius:6px;padding:2px 7px;border:1px solid currentColor}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0 0;padding:0;list-style:none}
+.chip{display:flex;align-items:center;gap:8px;border:1.5px solid var(--linha);border-radius:999px;padding:6px 6px 6px 12px;background:var(--cartao)}
+.chip b{font-variant-numeric:tabular-nums}
+.chip button{min-height:34px;min-width:34px;padding:0;border-radius:999px;background:transparent;color:var(--fraca);border:1px solid var(--linha)}
+.sug{list-style:none;margin:6px 0 0;padding:0;border:1px solid var(--linha);border-radius:10px;overflow:hidden}
+.sug:empty{display:none}
+.sug li button{width:100%;text-align:left;border:0;border-top:1px solid var(--linha);border-radius:0;background:var(--cartao);color:var(--tinta);font-weight:400;display:flex;justify-content:space-between;gap:8px}
+.sug li:first-child button{border-top:0}
+table{width:100%;border-collapse:collapse;font-size:15px}
+th,td{text-align:left;padding:8px 6px;border-bottom:1px solid var(--linha);vertical-align:top}
+th{font-size:13px;color:var(--fraca);font-weight:700}
+td.n,th.n{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+.tblwrap{overflow-x:auto}
+details{border:1px solid var(--linha);border-radius:12px;padding:0 14px;margin:10px 0;background:var(--cartao)}
+details>summary{cursor:pointer;font-weight:700;min-height:48px;display:flex;align-items:center}
+details[open]>summary{border-bottom:1px solid var(--linha);margin-bottom:10px}
+ol.ref{padding-left:20px;font-size:14.5px;color:var(--fraca)}ol.ref li{margin:6px 0}
+.anc{scroll-margin-top:12px}
+.anc:target{outline:2px solid var(--acento);outline-offset:6px;border-radius:8px}
+footer{border-top:1px solid var(--linha)}
+footer .wrap{padding-block:18px 36px;color:var(--fraca);font-size:14px}
+footer p{max-width:64ch}
+.legal{font-weight:700;color:var(--tinta)}
+.steps{counter-reset:s;list-style:none;padding:0;margin:0}
+.step{position:relative;padding-left:40px;margin:0 0 4px}
+.step::before{counter-increment:s;content:counter(s);position:absolute;left:0;top:14px;width:28px;height:28px;border-radius:50%;background:var(--acento);color:#fff;font-weight:800;display:grid;place-items:center;font-size:14px}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .step::before{color:#06201D}}
+.hide{display:none!important}
+@media print{header,footer .nao-imprime,.btns,.sug{display:none!important}body{background:#fff;color:#000}.card,.res{break-inside:avoid}}
+@media (max-width:380px){.row{grid-template-columns:1fr 1fr}}
+</style>
+</head>
+<body>
+<header><div class="wrap gut">
+<p class="kick">Ferramenta · Parkinson</p>
+<h1>Dose equivalente de levodopa (LEDD)</h1>
+<p class="lede">Some a carga dopaminérgica diária de todo o esquema antiparkinsoniano com os fatores de conversão atualizados em 2023.</p>
+<p class="aviso"><b>Ferramenta educacional; não substitui julgamento clínico.</b> Funciona só no seu navegador: nada do que você marca é enviado, salvo ou compartilhado.</p>
+</div></header>
+<main><div class="wrap gut">
+<span id="m05-a03" class="anc"></span><span id="modulo-05" class="anc"></span>
+
+<div class="card">
+<p style="font-weight:700;margin:0">Doses diárias totais</p>
+<div class="fld" style="margin-top:10px"><label for="ld_ir">Levodopa liberação imediata ou dispersível <small style="display:block">mg de levodopa/dia (comprimido comum, dispersível, com carbidopa ou benserazida)</small></label><input id="ld_ir" type="number" inputmode="decimal" min="0" step="any" placeholder="0"></div><div class="fld" style="margin-top:10px"><label for="ld_cr">Levodopa liberação controlada <small style="display:block">mg de levodopa/dia (formulações HBS/CR)</small></label><input id="ld_cr" type="number" inputmode="decimal" min="0" step="any" placeholder="0"></div><div class="fld" style="margin-top:10px"><label for="pram">Pramipexol <small style="display:block">mg/dia, dose expressa como sal (dicloridrato) — confira a bula</small></label><input id="pram" type="number" inputmode="decimal" min="0" step="any" placeholder="0"></div><div class="fld" style="margin-top:10px"><label for="ropi">Ropinirol <small style="display:block">mg/dia</small></label><input id="ropi" type="number" inputmode="decimal" min="0" step="any" placeholder="0"></div><div class="fld" style="margin-top:10px"><label for="roti">Rotigotina (adesivo) <small style="display:block">mg/24 h</small></label><input id="roti" type="number" inputmode="decimal" min="0" step="any" placeholder="0"></div><div class="fld" style="margin-top:10px"><label for="rasa">Rasagilina <small style="display:block">mg/dia</small></label><input id="rasa" type="number" inputmode="decimal" min="0" step="any" placeholder="0"></div><div class="fld" style="margin-top:10px"><label for="sele">Selegilina oral <small style="display:block">mg/dia</small></label><input id="sele" type="number" inputmode="decimal" min="0" step="any" placeholder="0"></div><div class="fld" style="margin-top:10px"><label for="safi">Safinamida <small style="display:block">marque a dose diária (50 ou 100 mg = LED fixa de 150)</small></label><select id="safi"><option value="0">não usa</option><option value="50">50 mg/dia</option><option value="100">100 mg/dia</option></select></div><div class="fld" style="margin-top:10px"><label for="aman">Amantadina liberação imediata <small style="display:block">mg/dia</small></label><input id="aman" type="number" inputmode="decimal" min="0" step="any" placeholder="0"></div><div class="fld" style="margin-top:10px"><label for="apo">Apomorfina subcutânea <small style="display:block">mg/dia</small></label><input id="apo" type="number" inputmode="decimal" min="0" step="any" placeholder="0"></div><div class="fld" style="margin-top:10px"><label for="piri">Piribedil <small style="display:block">mg/dia</small></label><input id="piri" type="number" inputmode="decimal" min="0" step="any" placeholder="0"></div><div class="fld" style="margin-top:10px"><label for="bromo">Bromocriptina <small style="display:block">mg/dia</small></label><input id="bromo" type="number" inputmode="decimal" min="0" step="any" placeholder="0"></div>
+<div class="q" style="margin-top:14px;padding-top:14px;border-top:1px solid var(--linha)"><p class="t">Inibidor da COMT</p><p class="h">Aplica-se à levodopa, não à dose do inibidor.</p>
+<div class="opts">
+<label class="op"><input type="radio" name="comt" value="0" checked><span>Nenhum</span></label>
+<label class="op"><input type="radio" name="comt" value="ent"><span>Entacapona<small>soma 0,33 × a levodopa tomada junto com ela</small></span></label>
+<label class="op"><input type="radio" name="comt" value="opi"><span>Opicapona<small>soma 0,5 × a levodopa do dia</small></span></label>
+<label class="op"><input type="radio" name="comt" value="tol"><span>Tolcapona<small>soma 0,5 × a levodopa do dia</small></span></label>
+</div>
+<div class="fld hide" id="entbox" style="margin-top:10px"><label for="ent_ld">Levodopa tomada com entacapona (mg/dia)<small style="display:block">em branco = toda a levodopa</small></label><input id="ent_ld" type="number" inputmode="decimal" min="0" step="any"></div>
+</div>
+</div>
+<div id="res" class="res" aria-live="polite" data-n="">
+<p class="big" id="tot">LEDD 0 mg/dia</p><p class="rot" id="rot">Preencha as doses.</p>
+<div class="tblwrap"><table id="tab"><thead><tr><th>Fármaco</th><th class="n">Dose</th><th class="n">Fator</th><th class="n">LED</th></tr></thead><tbody></tbody></table></div>
+<div class="btns"><button type="button" class="sec" data-copia="resumo" onclick="copiar('resumo')">Copiar resumo</button><button type="button" class="sec" onclick="window.print()">Imprimir</button></div>
+<pre id="resumo" class="hide"></pre>
+</div>
+<h2 id="outros" class="anc">Para que serve (e para que não serve)</h2>
+<div class="card"><ul>
+<li>Comparar a carga dopaminérgica entre regimes diferentes, acompanhar a evolução e descrever pacientes em pesquisa.</li>
+<li>Estimar a carga total ao avaliar efeitos adversos (alucinações, hipotensão ortostática, transtorno do controle de impulsos, discinesia).</li>
+<li><b>Não</b> é tabela de troca 1:1. As equivalências são aproximadas e a resposta individual varia; mudanças de esquema exigem titulação e reavaliação clínica.</li>
+<li>Anticolinérgicos (triexifenidil, biperideno) não entram na soma; no idoso, devem ser evitados (Beers 2023).</li>
+<li id="demencia" class="anc">Na demência associada ao Parkinson, psicose e confusão costumam piorar com agonistas e anticolinérgicos antes de piorar com levodopa: a LEDD ajuda a ver de onde vem a carga.</li>
+</ul></div>
+
+<h2 id="fontes">Fontes</h2>
+<ol class="ref"><li>Jost ST, Kaldenbach MA, Antonini A, et al.; International Parkinson and Movement Disorders Society Non-Motor Parkinson Disease Study Group. Levodopa dose equivalency in Parkinson's disease: updated systematic review and proposals. <i>Mov Disord</i>. 2023;38(7):1236-52. PMID 37147135. <a href="https://doi.org/10.1002/mds.29410" rel="noopener">doi:10.1002/mds.29410</a>.</li><li>Tomlinson CL, Stowe R, Patel S, et al. Systematic review of levodopa dose equivalency reporting in Parkinson's disease. <i>Mov Disord</i>. 2010;25(15):2649-53.</li><li>2023 American Geriatrics Society Beers Criteria® Update Expert Panel. <i>J Am Geriatr Soc</i>. 2023;71(7):2052-81.</li></ol>
+<p style="font-size:14.5px;color:var(--fraca)">Atualizações de alto impacto sobre o tema: <a href="../../atualizacoes/parkinson/">parkinson</a>.</p>
+</div></main>
+<footer><div class="wrap gut">
+<p class="legal">Ferramenta educacional; não substitui julgamento clínico.</p>
+<p>Uso por profissionais de saúde. Os resultados dependem dos dados inseridos e devem ser interpretados no contexto do paciente. Sem coleta de dados, sem cookies, sem rastreamento.</p>
+<p>Responsável técnico: Dr. José Dias Linhares Júnior · Médico · CRM-RS 49835 · RQE 41886 — Medicina de Família e Comunidade. Conteúdo revisado em nov/2026.</p>
+<p class="nao-imprime"><a href="../">Outras ferramentas</a></p>
+</div></footer>
+<script>
+function copiar(id){const t=document.getElementById(id).innerText;navigator.clipboard&&navigator.clipboard.writeText(t).then(()=>{const b=document.querySelector('[data-copia="'+id+'"]');if(b){const o=b.textContent;b.textContent='Copiado';setTimeout(()=>b.textContent=o,1500)}}).catch(()=>{});}
+const F=[{"i": "ld_ir", "n": "Levodopa liberação imediata ou dispersível", "f": 1, "t": "dd"}, {"i": "ld_cr", "n": "Levodopa liberação controlada", "f": 0.75, "t": "dd"}, {"i": "pram", "n": "Pramipexol", "f": 100, "t": "dd"}, {"i": "ropi", "n": "Ropinirol", "f": 20, "t": "dd"}, {"i": "roti", "n": "Rotigotina (adesivo)", "f": 30.3, "t": "dd"}, {"i": "rasa", "n": "Rasagilina", "f": 100, "t": "dd"}, {"i": "sele", "n": "Selegilina oral", "f": 10, "t": "dd"}, {"i": "safi", "n": "Safinamida", "f": 150, "t": "fix"}, {"i": "aman", "n": "Amantadina liberação imediata", "f": 1, "t": "dd"}, {"i": "apo", "n": "Apomorfina subcutânea", "f": 10, "t": "dd"}, {"i": "piri", "n": "Piribedil", "f": 1, "t": "dd"}, {"i": "bromo", "n": "Bromocriptina", "f": 10, "t": "dd"}];
+const $=s=>document.querySelector(s);const v=id=>{const x=parseFloat(String($('#'+id).value).replace(',','.'));return isFinite(x)&&x>0?x:0};
+const fmt=x=>(Math.round(x*10)/10).toLocaleString('pt-BR');
+function calc(){let rows=[],tot=0;F.forEach(d=>{const dd=v(d.i);if(!dd)return;const led=d.t==='fix'?d.f:dd*d.f;tot+=led;rows.push([d.n,fmt(dd)+' mg',d.t==='fix'?'fixo':'× '+String(d.f).replace('.',','),led])});
+const ld=v('ld_ir')+v('ld_cr');const c=(document.querySelector('input[name=comt]:checked')||{}).value;$('#entbox').classList.toggle('hide',c!=='ent');
+if(c&&c!=='0'&&ld>0){let base=ld,f=.5,nm=c==='opi'?'Opicapona':'Tolcapona';if(c==='ent'){f=.33;nm='Entacapona';const e=v('ent_ld');if(e)base=Math.min(e,ld)}const led=base*f;tot+=led;rows.push([nm+' (sobre levodopa)',fmt(base)+' mg LD','× '+String(f).replace('.',','),led])}
+$('#tab tbody').innerHTML=rows.map(r=>'<tr><td>'+r[0]+'</td><td class="n">'+r[1]+'</td><td class="n">'+r[2]+'</td><td class="n">'+fmt(r[3])+'</td></tr>').join('');
+$('#tot').textContent='LEDD '+fmt(tot)+' mg/dia';$('#res').dataset.n=rows.length?'ok':'';
+$('#rot').textContent=rows.length?'Soma de '+rows.length+' componente(s), fatores de Jost et al., 2023.':'Preencha as doses.';
+$('#resumo').textContent='LEDD (Jost et al., Mov Disord 2023): '+fmt(tot)+' mg/dia. Componentes: '+rows.map(r=>r[0]+' '+r[1]+' → '+fmt(r[3])).join('; ')+'.';}
+document.addEventListener('input',calc);document.addEventListener('change',calc);calc();
+</script>
+</body>
+</html>

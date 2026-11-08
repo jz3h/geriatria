@@ -1,0 +1,263 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Sintomas comportamentais: método DICE</title>
+<meta name="description" content="Roteiro DICE (descrever, investigar, criar, avaliar) para sintomas comportamentais da demência, com plano não farmacológico e regras de revisão do antipsicótico.">
+<meta name="robots" content="index,follow">
+<style>
+:root{--papel:#F7F5F0;--cartao:#FFFFFF;--tinta:#10233F;--fraca:#55657E;--linha:#E2DDD3;--acento:#0F766E;--acento-2:#0B5C56;--acento-soft:#E3F2EF;
+--ok:#166534;--ok-soft:#E5F4EA;--medio:#9A5B00;--medio-soft:#FDF0D9;--alto:#B42318;--alto-soft:#FDE7E5;--foco:#F2B705;color-scheme:light}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--papel:#0D1522;--cartao:#152034;--tinta:#E9EEF6;--fraca:#A0AFC6;--linha:#26344C;--acento:#38BDB0;--acento-2:#5FD3C7;--acento-soft:#123532;
+--ok:#6EE7A0;--ok-soft:#123323;--medio:#F5B94D;--medio-soft:#3A2A0F;--alto:#FF8A80;--alto-soft:#3D1715;color-scheme:dark}}
+:root[data-theme="dark"]{--papel:#0D1522;--cartao:#152034;--tinta:#E9EEF6;--fraca:#A0AFC6;--linha:#26344C;--acento:#38BDB0;--acento-2:#5FD3C7;--acento-soft:#123532;
+--ok:#6EE7A0;--ok-soft:#123323;--medio:#F5B94D;--medio-soft:#3A2A0F;--alto:#FF8A80;--alto-soft:#3D1715;color-scheme:dark}
+*{box-sizing:border-box}html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
+body{margin:0;background:var(--papel);color:var(--tinta);font:17px/1.55 "Atkinson Hyperlegible","Segoe UI",system-ui,-apple-system,Roboto,sans-serif;overflow-x:hidden}
+.gut{padding-inline:max(16px,env(safe-area-inset-left,0px))}
+.wrap{max-width:720px;margin:0 auto}
+header{border-bottom:1px solid var(--linha)}
+header .wrap{padding-block:22px 18px}
+.kick{margin:0;font-size:12px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--acento)}
+h1{margin:6px 0 0;font-size:clamp(25px,6.4vw,34px);line-height:1.15;letter-spacing:-.02em;text-wrap:balance}
+.lede{margin:10px 0 0;color:var(--fraca);max-width:60ch}
+main .wrap{padding-block:14px 40px}
+h2{font-size:20px;margin:30px 0 8px;letter-spacing:-.01em}
+h3{font-size:17px;margin:18px 0 6px}
+p{margin:0 0 10px}
+a{color:var(--acento-2);text-underline-offset:3px}
+.card{background:var(--cartao);border:1px solid var(--linha);border-radius:14px;padding:16px;margin:14px 0}
+.aviso{font-size:14.5px;background:var(--acento-soft);border-radius:12px;padding:12px 14px;margin:14px 0 0}
+.aviso b{color:var(--tinta)}
+.q{border-top:1px solid var(--linha);padding:14px 0}
+.q:first-of-type{border-top:0;padding-top:0}
+.q>p.t{font-weight:700;margin:0 0 8px}
+.q>p.h{color:var(--fraca);font-size:14.5px;margin:-4px 0 8px}
+.opts{display:grid;gap:8px}
+label.op{display:flex;gap:10px;align-items:flex-start;min-height:48px;padding:11px 12px;border:1.5px solid var(--linha);border-radius:11px;cursor:pointer;background:var(--cartao)}
+label.op:has(input:checked){border-color:var(--acento);background:var(--acento-soft)}
+label.op input{margin:3px 0 0;width:20px;height:20px;accent-color:var(--acento);flex:none}
+label.op span small{display:block;color:var(--fraca);font-size:14px}
+.pts{margin-left:auto;font-variant-numeric:tabular-nums;color:var(--fraca);font-size:14px;white-space:nowrap}
+.row{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px}
+.row2{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.fld label{display:block;font-size:13.5px;color:var(--fraca);margin-bottom:4px}
+input[type=number],input[type=search],select{width:100%;min-height:48px;font:inherit;color:var(--tinta);background:var(--cartao);border:1.5px solid var(--linha);border-radius:10px;padding:10px 12px}
+input:focus-visible,select:focus-visible,button:focus-visible,label.op:focus-within{outline:3px solid var(--foco);outline-offset:2px}
+button{font:inherit;font-weight:700;min-height:48px;border-radius:11px;border:1.5px solid var(--acento);background:var(--acento);color:#fff;padding:10px 16px;cursor:pointer}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) button{color:#06201D}}
+:root[data-theme="dark"] button{color:#06201D}
+button.sec{background:transparent;color:var(--acento-2)}
+.btns{display:flex;flex-wrap:wrap;gap:10px;margin-top:14px}
+.res{border-radius:14px;padding:16px;margin:16px 0;border:1.5px solid var(--linha);background:var(--cartao)}
+.res[data-n="ok"]{background:var(--ok-soft);border-color:var(--ok)}
+.res[data-n="medio"]{background:var(--medio-soft);border-color:var(--medio)}
+.res[data-n="alto"]{background:var(--alto-soft);border-color:var(--alto)}
+.res .big{font-size:30px;font-weight:800;letter-spacing:-.02em;line-height:1.1;margin:0 0 4px;font-variant-numeric:tabular-nums}
+.res .rot{font-weight:700;margin:0 0 8px}
+.res ul{margin:6px 0 0;padding-left:20px}
+.res li{margin:3px 0}
+.tag{display:inline-block;font-size:12px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;border-radius:6px;padding:2px 7px;border:1px solid currentColor}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0 0;padding:0;list-style:none}
+.chip{display:flex;align-items:center;gap:8px;border:1.5px solid var(--linha);border-radius:999px;padding:6px 6px 6px 12px;background:var(--cartao)}
+.chip b{font-variant-numeric:tabular-nums}
+.chip button{min-height:34px;min-width:34px;padding:0;border-radius:999px;background:transparent;color:var(--fraca);border:1px solid var(--linha)}
+.sug{list-style:none;margin:6px 0 0;padding:0;border:1px solid var(--linha);border-radius:10px;overflow:hidden}
+.sug:empty{display:none}
+.sug li button{width:100%;text-align:left;border:0;border-top:1px solid var(--linha);border-radius:0;background:var(--cartao);color:var(--tinta);font-weight:400;display:flex;justify-content:space-between;gap:8px}
+.sug li:first-child button{border-top:0}
+table{width:100%;border-collapse:collapse;font-size:15px}
+th,td{text-align:left;padding:8px 6px;border-bottom:1px solid var(--linha);vertical-align:top}
+th{font-size:13px;color:var(--fraca);font-weight:700}
+td.n,th.n{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+.tblwrap{overflow-x:auto}
+details{border:1px solid var(--linha);border-radius:12px;padding:0 14px;margin:10px 0;background:var(--cartao)}
+details>summary{cursor:pointer;font-weight:700;min-height:48px;display:flex;align-items:center}
+details[open]>summary{border-bottom:1px solid var(--linha);margin-bottom:10px}
+ol.ref{padding-left:20px;font-size:14.5px;color:var(--fraca)}ol.ref li{margin:6px 0}
+.anc{scroll-margin-top:12px}
+.anc:target{outline:2px solid var(--acento);outline-offset:6px;border-radius:8px}
+footer{border-top:1px solid var(--linha)}
+footer .wrap{padding-block:18px 36px;color:var(--fraca);font-size:14px}
+footer p{max-width:64ch}
+.legal{font-weight:700;color:var(--tinta)}
+.steps{counter-reset:s;list-style:none;padding:0;margin:0}
+.step{position:relative;padding-left:40px;margin:0 0 4px}
+.step::before{counter-increment:s;content:counter(s);position:absolute;left:0;top:14px;width:28px;height:28px;border-radius:50%;background:var(--acento);color:#fff;font-weight:800;display:grid;place-items:center;font-size:14px}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .step::before{color:#06201D}}
+.hide{display:none!important}
+@media print{header,footer .nao-imprime,.btns,.sug{display:none!important}body{background:#fff;color:#000}.card,.res{break-inside:avoid}}
+@media (max-width:380px){.row{grid-template-columns:1fr 1fr}}
+</style>
+</head>
+<body>
+<header><div class="wrap gut">
+<p class="kick">Ferramenta · Demência e comportamento</p>
+<h1>Sintomas comportamentais: método DICE</h1>
+<p class="lede">Descrever, investigar, criar e avaliar: um roteiro para o sintoma comportamental na demência, com plano não farmacológico e revisão do psicofármaco.</p>
+<p class="aviso"><b>Ferramenta educacional; não substitui julgamento clínico.</b> Funciona só no seu navegador: nada do que você marca é enviado, salvo ou compartilhado.</p>
+</div></header>
+<main><div class="wrap gut">
+<span id="m03-a15" class="anc"></span>
+<style>
+textarea{width:100%;min-height:84px;font:inherit;color:var(--tinta);background:var(--cartao);border:1.5px solid var(--linha);border-radius:10px;padding:10px 12px;resize:vertical}
+textarea:focus-visible{outline:3px solid var(--foco);outline-offset:2px}
+.sub{color:var(--fraca);font-size:14.5px;margin:-2px 0 8px}
+.pill{display:inline-block;font-size:12.5px;font-weight:700;border-radius:999px;padding:2px 10px;border:1px solid currentColor;margin-right:6px}
+.pill.ok{color:var(--ok)}.pill.medio{color:var(--medio)}.pill.alto{color:var(--alto)}.pill.neutro{color:var(--fraca)}
+.hip{border:1.5px solid var(--linha);border-radius:14px;padding:14px;margin:12px 0;background:var(--cartao)}
+.hip[data-n="ok"]{border-color:var(--ok);background:var(--ok-soft)}
+.hip[data-n="medio"]{border-color:var(--medio);background:var(--medio-soft)}
+.hip h3{margin:0 0 4px}
+.hip ul{margin:6px 0 0;padding-left:20px}
+.nav{display:flex;flex-wrap:wrap;gap:8px;margin:12px 0 0;padding:0;list-style:none}
+.nav a{display:inline-flex;align-items:center;min-height:48px;padding:0 14px;border:1.5px solid var(--linha);border-radius:999px;text-decoration:none;color:var(--tinta);background:var(--cartao);font-weight:700;font-size:15px}
+.fonte-i{font-size:13.5px;color:var(--fraca)}
+table.t2 td:first-child{font-weight:700}
+</style>
+<ul class="nav" aria-label="Atalhos"><li><a href="#passo-d">D</a></li><li><a href="#passo-i">I</a></li><li><a href="#passo-c">C</a></li><li><a href="#passo-e">E</a></li></ul>
+
+<ol class="steps">
+<li class="step"><div class="card" id="passo-d">
+<h2 style="margin-top:0">Descrever</h2>
+<p class="sub">Converse com o cuidador e, se possível, com a pessoa. Caracterize o sintoma, o contexto e o que mais incomoda.</p>
+<div class="fld"><label for="alvo">Comportamento-alvo</label><select id="alvo"><option value="">Escolha…</option><option value="agit">Agitação ou agressividade</option><option value="psic">Delírios ou alucinações (psicose)</option><option value="depr">Tristeza, desânimo ou depressão</option><option value="apat">Apatia ou perda de iniciativa</option><option value="sono">Alteração do sono</option><option value="vag">Vagueação ou seguir o cuidador o tempo todo</option><option value="recu">Recusa de cuidados (banho, medicação, alimentação)</option><option value="rep">Perguntas ou falas repetitivas</option><option value="inap">Comportamento inadequado em público ou perigoso</option><option value="outro">Outro</option></select></div>
+<div class="fld" style="margin-top:12px"><label for="desc">O que acontece, quando, com quem, o que vem antes (gatilhos)</label><textarea id="desc" placeholder="Ex.: grita e empurra na hora do banho, ao fim da tarde…"></textarea></div>
+<div class="fld" style="margin-top:12px"><label for="meta">Meta do tratamento (o que é mais problemático para a pessoa e para o cuidador)</label><textarea id="meta" style="min-height:64px"></textarea></div>
+</div></li>
+
+<li class="step"><div class="card" id="passo-i">
+<h2 style="margin-top:0">Investigar</h2>
+<p class="sub">Pense na pessoa, no cuidador e no ambiente como um triângulo que interage. Marque o que parece contribuir.</p>
+<h3>Condições médicas</h3><div class="opts"><label class="op "><input type="checkbox" id="i_dor" name="inv" value="dor"><span>Dor não tratada ou mal avaliada</span></label><label class="op "><input type="checkbox" id="i_inf" name="inv" value="inf"><span>Infecção (urinária ou outra)</span></label><label class="op "><input type="checkbox" id="i_cons" name="inv" value="cons"><span>Constipação ou retenção urinária</span></label><label class="op "><input type="checkbox" id="i_desi" name="inv" value="desi"><span>Desidratação</span></label><label class="op "><input type="checkbox" id="i_anem" name="inv" value="anem"><span>Anemia ou outra doença não diagnosticada</span></label><label class="op "><input type="checkbox" id="i_med" name="inv" value="med"><span>Medicamentos com efeito sobre o comportamento<small>revisar lista inteira, inclusive os de venda livre</small></span></label><label class="op "><input type="checkbox" id="i_sens" name="inv" value="sens"><span>Déficit de visão ou audição</span></label><label class="op "><input type="checkbox" id="i_sonoh" name="inv" value="sonoh"><span>Sono ruim ou higiene do sono inadequada</span></label></div><h3>Pessoa com demência</h3><div class="opts"><label class="op "><input type="checkbox" id="i_psiq" name="inv" value="psiq"><span>Antecedente psiquiátrico</span></label><label class="op "><input type="checkbox" id="i_func" name="inv" value="func"><span>Limitação funcional que gera frustração</span></label><label class="op "><input type="checkbox" id="i_gravc" name="inv" value="gravc"><span>Gravidade do declínio cognitivo<small>pedidos que a pessoa já não consegue cumprir</small></span></label><label class="op "><input type="checkbox" id="i_nec" name="inv" value="nec"><span>Necessidade não atendida<small>fome, sede, toalete, desconforto, medo</small></span></label><label class="op "><input type="checkbox" id="i_tedio" name="inv" value="tedio"><span>Tédio ou falta de atividade</span></label></div><h3>Cuidador</h3><div class="opts"><label class="op "><input type="checkbox" id="i_comu" name="inv" value="comu"><span>Estilo de comunicação ou história da relação</span></label><label class="op "><input type="checkbox" id="i_expe" name="inv" value="expe"><span>Expectativas: superestima ou subestima o que a pessoa consegue fazer</span></label><label class="op "><input type="checkbox" id="i_estr" name="inv" value="estr"><span>Estresse ou depressão do cuidador</span></label></div><h3>Ambiente</h3><div class="opts"><label class="op "><input type="checkbox" id="i_estim" name="inv" value="estim"><span>Excesso ou falta de estímulo</span></label><label class="op "><input type="checkbox" id="i_orie" name="inv" value="orie"><span>Local difícil de percorrer ou de se orientar</span></label><label class="op "><input type="checkbox" id="i_rot" name="inv" value="rot"><span>Falta de rotina previsível e de atividades prazerosas</span></label></div>
+<p class="fonte-i" style="margin-top:12px">Exames úteis para descartar causas clínicas: glicemia, eletrólitos, hemograma com diferencial e urina tipo 1.</p>
+</div></li>
+
+<li class="step"><div class="card" id="passo-c">
+<h2 style="margin-top:0">Criar</h2>
+<p class="sub">Plano em equipe (médico, cuidador, enfermagem, assistente social, terapeuta ocupacional). O cuidador executa e avalia.</p>
+<h3>1. Tratar o que foi encontrado</h3>
+<ul id="plano-med"><li>Marque causas no passo anterior para ver o plano clínico.</li></ul>
+<h3>2. Cinco áreas de estratégia não farmacológica</h3>
+<div class="opts"><label class="op "><input type="checkbox" id="d_educ" name="dom" value="educ"><span><b>Educação do cuidador</b><small>explicar que o comportamento é sintoma da doença e não escolha; ensinar a identificar gatilhos e a buscar soluções junto com a equipe</small></span></label><label class="op "><input type="checkbox" id="d_comu5" name="dom" value="comu5"><span><b>Comunicação</b><small>frases curtas e simples, uma instrução por vez, tom calmo, dar tempo para responder</small></span></label><label class="op "><input type="checkbox" id="d_ativ" name="dom" value="ativ"><span><b>Atividades significativas</b><small>atividades ajustadas ao que a pessoa gosta e ainda consegue fazer (música, movimento, tarefas da casa)</small></span></label><label class="op "><input type="checkbox" id="d_rot5" name="dom" value="rot5"><span><b>Tarefas simples e rotina estruturada</b><small>dividir as tarefas em etapas, horários previsíveis para banho, refeições e sono</small></span></label><label class="op "><input type="checkbox" id="d_segu" name="dom" value="segu"><span><b>Segurança e ambiente</b><small>retirar excesso de objetos, sinalizar portas e banheiro, reduzir ruído e luz inadequada</small></span></label></div>
+<h3>3. Há exceção para psicofármaco?</h3>
+<p class="sub">O plano padrão é tentar antes medidas clínicas, comportamentais e ambientais. Há três exceções, por risco sério e imediato.</p>
+<div class="opts">
+<label class="op"><input type="radio" name="exc" value="nenhuma" checked><span>Nenhuma das três<small>padrão: sem psicofármaco por ora</small></span></label>
+<label class="op"><input type="radio" name="exc" value="depr"><span>Depressão maior, com ou sem ideação suicida<small>classe a considerar: antidepressivo</small></span></label>
+<label class="op"><input type="radio" name="exc" value="psic"><span>Psicose que causa dano ou tem grande potencial de dano<small>classe a considerar: antipsicótico</small></span></label>
+<label class="op"><input type="radio" name="exc" value="agre"><span>Agressão com risco para si ou para outros<small>classes a considerar: antipsicótico ou antidepressivo (citalopram, no artigo-fonte)</small></span></label>
+</div>
+<div id="exc-info" aria-live="polite"></div>
+<p class="fonte-i">Nenhuma dose é sugerida nesta página. Decisão e posologia dependem de prescritor e do contexto.</p>
+</div></li>
+
+<li class="step"><div class="card" id="passo-e">
+<h2 style="margin-top:0">Avaliar</h2>
+<p class="sub">Combine quando e como a equipe vai reavaliar.</p>
+<div class="opts">
+<label class="op "><input type="checkbox" id="e1"><span>Estratégias foram realmente aplicadas e de forma adequada?</span></label>
+<label class="op "><input type="checkbox" id="e2"><span>Sintoma-alvo melhorou?</span></label>
+<label class="op "><input type="checkbox" id="e3"><span>Sofrimento do cuidador diminuiu?</span></label>
+<label class="op "><input type="checkbox" id="e4"><span>Houve efeito indesejado (novo sintoma, sedação, queda)?</span></label>
+<label class="op "><input type="checkbox" id="e5"><span>Se há psicofármaco: foi tentada redução ou suspensão?<small>o comportamento flutua ao longo da doença; remova intervenções, em especial fármacos, em intervalos regulares</small></span></label>
+</div>
+<p class="fonte-i" style="margin-top:10px">O consenso canadense citado no artigo-fonte sugere revisão a cada três meses. O artigo apoia a retirada de antipsicótico em muitos pacientes, com mais cautela em quem teve sintomas graves.</p>
+</div></li>
+</ol>
+
+<div id="res" class="res" data-n="">
+<p class="rot" id="rot">Plano DICE</p>
+<p id="resumo-vis" style="white-space:pre-wrap;margin:0"></p>
+<div class="btns"><button type="button" class="sec" data-copia="resumo" onclick="copiar('resumo')">Copiar resumo para o prontuário</button><button type="button" class="sec" onclick="window.print()">Imprimir</button></div><pre id="resumo" class="hide"></pre>
+</div>
+
+<h2 id="psicose" class="anc">Psicose e antipsicóticos</h2>
+<div class="card">
+<p><b>Quando considerar:</b> apenas se a psicose causa dano ou tem grande potencial de dano, depois de afastar causa clínica (por exemplo infecção urinária). Pode servir como medida temporária enquanto se descreve e investiga.</p>
+<p><b>Benefício limitado:</b> entre os fármacos usados para sintomas comportamentais, os antipsicóticos atípicos têm a melhor base de evidência, mas o benefício é, no máximo, moderado (tamanho de efeito 0,13 a 0,16 no artigo-fonte).</p>
+<p><b>Riscos descritos:</b></p>
+<ul>
+<li>Aumento de mortalidade: a agência regulatória norte-americana (FDA) emitiu alerta em caixa-preta para antipsicóticos atípicos (2005) e convencionais (2008) em demência.</li>
+<li>Eventos cerebrovasculares (AVC) e piora cognitiva.</li>
+<li>Ganho de peso, diabetes e síndrome metabólica; sonolência; sintomas extrapiramidais; alteração da marcha.</li>
+<li>Convencionais: ainda efeitos anticolinérgicos, hipotensão postural, QT prolongado e discinesia tardia.</li>
+<li>Demência com corpos de Lewy: risco maior de eventos adversos graves; use cautela extra ou evite (consenso do DLB Consortium, 2017).</li>
+</ul>
+<p><b>Se usar:</b> uso fora da bula, tempo limitado, seguimento próximo, avaliação dos riscos e benefícios com a família e reavaliação regular, com tentativa de redução ou suspensão.</p>
+<p><b>Pouco prováveis de melhorar com psicofármaco:</b> problemas de memória, desatenção ou desinteresse, perguntas repetidas, recusa de cuidados, seguir o cuidador, vagueação e comportamentos perigosos ou inadequados (por exemplo despir-se em público). Aqui o caminho é o passo C do plano.</p>
+</div>
+
+<h2 id="dft" class="anc">Demência frontotemporal e corpos de Lewy</h2>
+<div class="card">
+<p>O mesmo método DICE vale para qualquer tipo de demência, mas o <b>tipo</b> orienta a investigação e a cautela com fármacos.</p>
+<ul>
+<li><b>Variante comportamental da DFT:</b> desinibição, apatia ou inércia, perda de empatia, comportamentos compulsivos ou ritualísticos, hiperoralidade e mudanças alimentares são os sintomas que definem o quadro (critérios internacionais de 2011). O comportamento é parte da doença: o foco do plano é cuidador, ambiente e segurança. Veja os critérios na ferramenta <a href="../demencias-diferencial/#dft">Diferencial das demências</a>.</li>
+<li><b>Corpos de Lewy:</b> alucinações visuais, flutuação e sensibilidade a antipsicóticos pedem cautela redobrada com bloqueadores de dopamina. Veja <a href="../demencias-diferencial/#lewy">critérios de DCL</a>.</li>
+</ul>
+</div>
+
+<h2 id="fontes">Fontes</h2>
+<ol class="ref"><li>Kales HC, Gitlin LN, Lyketsos CG. Assessment and management of behavioral and psychological symptoms of dementia. <i>BMJ</i>. 2015;350:h369. <a href="https://doi.org/10.1136/bmj.h369" rel="noopener">doi:10.1136/bmj.h369</a>. PMID 25731881.</li><li>McKeith IG, Boeve BF, Dickson DW, et al. Diagnosis and management of dementia with Lewy bodies: fourth consensus report of the DLB Consortium. <i>Neurology</i>. 2017;89(1):88-100. <a href="https://doi.org/10.1212/WNL.0000000000004058" rel="noopener">doi:10.1212/WNL.0000000000004058</a>.</li><li>Rascovsky K, Hodges JR, Knopman D, et al. Sensitivity of revised diagnostic criteria for the behavioural variant of frontotemporal dementia. <i>Brain</i>. 2011;134(9):2456-77. <a href="https://doi.org/10.1093/brain/awr179" rel="noopener">doi:10.1093/brain/awr179</a>.</li></ol>
+<p style="font-size:14.5px;color:var(--fraca)">Atualizações de alto impacto sobre o tema: <a href="../../atualizacoes/alzheimer/">alzheimer</a> · <a href="../../atualizacoes/cognicao-demencias/">cognicao demencias</a> · <a href="../../atualizacoes/psicose/">psicose</a>.</p>
+</div></main>
+<footer><div class="wrap gut">
+<p class="legal">Ferramenta educacional; não substitui julgamento clínico.</p>
+<p>Uso por profissionais de saúde. Os resultados dependem dos dados inseridos e devem ser interpretados no contexto do paciente. Sem coleta de dados, sem cookies, sem rastreamento.</p>
+<p>Responsável técnico: Dr. José Dias Linhares Júnior · Médico · CRM-RS 49835 · RQE 41886 — Medicina de Família e Comunidade. Conteúdo revisado em nov/2026.</p>
+<p class="nao-imprime"><a href="../">Outras ferramentas</a></p>
+</div></footer>
+<script>
+function copiar(id){const t=document.getElementById(id).innerText;navigator.clipboard&&navigator.clipboard.writeText(t).then(()=>{const b=document.querySelector('[data-copia="'+id+'"]');if(b){const o=b.textContent;b.textContent='Copiado';setTimeout(()=>b.textContent=o,1500)}}).catch(()=>{});}
+
+const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
+const ALVO={agit:'agitação ou agressividade',psic:'delírios ou alucinações',depr:'tristeza ou depressão',apat:'apatia',sono:'alteração do sono',vag:'vagueação',recu:'recusa de cuidados',rep:'perguntas ou falas repetitivas',inap:'comportamento inadequado ou perigoso',outro:'outro comportamento'};
+const PLANO={
+dor:'Avaliar e tratar a dor (uma boa analgesia pode reduzir prescrição desnecessária de psicotrópicos).',
+inf:'Tratar a infecção identificada.',
+cons:'Tratar constipação e retenção urinária.',
+desi:'Corrigir a desidratação.',
+anem:'Investigar e tratar a condição clínica não diagnosticada.',
+med:'Revisar os medicamentos e suspender, se possível, os que têm efeito sobre o comportamento; avaliar outros efeitos adversos.',
+sens:'Investigar e corrigir déficit sensorial (ajustar óculos, indicar aparelho auditivo).',
+sonoh:'Instituir medidas de higiene do sono.',
+psiq:'Considerar o antecedente psiquiátrico na formulação do plano.',
+func:'Simplificar tarefas e ajustar o apoio à limitação funcional.',
+gravc:'Ajustar o que se pede à capacidade atual da pessoa.',
+nec:'Identificar e atender a necessidade (alimentação, hidratação, toalete, conforto).',
+tedio:'Oferecer atividades significativas e estruturadas.',
+comu:'Orientar o cuidador sobre comunicação; explorar a história da relação.',
+expe:'Ajustar as expectativas do cuidador à capacidade real da pessoa.',
+estr:'Avaliar o cuidador (estresse, depressão) e oferecer apoio e rede.',
+estim:'Adequar o nível de estímulo (reduzir ruído e excesso; incluir atividade quando houver ociosidade).',
+orie:'Facilitar a orientação no ambiente (sinalização, caminho livre).',
+rot:'Estabelecer rotina previsível e atividades prazerosas.'};
+const DOM={educ:'educação do cuidador',comu5:'comunicação',ativ:'atividades significativas',rot5:'tarefas simples e rotina estruturada',segu:'segurança e ambiente'};
+const EXC={
+depr:'Exceção do DICE: depressão maior (com ou sem ideação suicida). Classe a considerar: antidepressivo, por prescritor, com seguimento próximo e uso por tempo limitado. Avalie risco de suicídio.',
+psic:'Exceção do DICE: psicose com dano ou potencial de dano. Classe a considerar: antipsicótico. Baseado em consenso de especialistas, uso fora da bula, tempo limitado, seguimento próximo. Pese os riscos (mortalidade, AVC, metabólicos, sedação, extrapiramidais, marcha) e, se houver corpos de Lewy, cautela extra.',
+agre:'Exceção do DICE: agressão com risco para si ou para outros. Classes a considerar: antipsicótico ou antidepressivo. Consenso de especialistas, uso fora da bula, tempo limitado, seguimento próximo; pese os riscos do antipsicótico.'};
+function calc(){
+ const alvo=$('#alvo').value, desc=$('#desc').value.trim(), meta=$('#meta').value.trim();
+ const inv=$$('input[name=inv]:checked').map(x=>x.value);
+ const dom=$$('input[name=dom]:checked').map(x=>x.value);
+ const exc=(document.querySelector('input[name=exc]:checked')||{}).value||'nenhuma';
+ const ev=$$('#passo-e input:checked').length;
+ $('#plano-med').innerHTML=inv.length?inv.map(k=>'<li>'+PLANO[k]+'</li>').join(''):'<li>Marque causas no passo anterior para ver o plano clínico.</li>';
+ const ei=$('#exc-info');
+ if(exc==='nenhuma'){ei.innerHTML='<div class="aviso">Padrão: sem psicofármaco por ora. Esgote primeiro as medidas clínicas, comportamentais e ambientais. Se o comportamento põe alguém em risco imediato, reavalie as exceções.</div>'}
+ else{ei.innerHTML='<div class="aviso">'+EXC[exc]+'</div>'}
+ let t='Abordagem DICE para sintomas comportamentais e psicológicos da demência.\n';
+ t+='D. '+(alvo?('Comportamento-alvo: '+ALVO[alvo]+'. '):'')+(desc?('Descrição: '+desc+'. '):'')+(meta?('Meta: '+meta+'. '):'')+'\n';
+ const lab=k=>document.querySelector('label:has(#i_'+k+') span').childNodes[0].textContent.trim();
+ t+='I. '+(inv.length?('Possíveis contribuintes identificados: '+inv.map(lab).join('; ')):'Nenhum contribuinte marcado até o momento')+'.\n';
+ t+='C. '+(inv.length?('Plano clínico: '+inv.map(k=>PLANO[k]).join(' ')+' '):'')+(dom.length?('Estratégias não farmacológicas: '+dom.map(k=>DOM[k]).join(', ')+'. '):'')+(exc==='nenhuma'?'Sem psicofármaco por ora.':EXC[exc])+'\n';
+ t+='E. Reavaliar em intervalos regulares (sugestão do consenso citado: a cada 3 meses), checando adesão às estratégias, sintoma-alvo, sofrimento do cuidador e efeitos indesejados; se houver psicofármaco, tentar redução ou suspensão.';
+ $('#resumo').textContent=t;$('#resumo-vis').textContent=t;
+ const R=$('#res');R.dataset.n=(exc!=='nenhuma')?'medio':'ok';
+}
+document.addEventListener('input',calc);document.addEventListener('change',calc);calc();
+</script>
+</body>
+</html>
