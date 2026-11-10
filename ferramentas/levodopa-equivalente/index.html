@@ -8,11 +8,11 @@
 <meta name="robots" content="index,follow">
 <style>
 :root{--papel:#F7F5F0;--cartao:#FFFFFF;--tinta:#10233F;--fraca:#55657E;--linha:#E2DDD3;--acento:#0F766E;--acento-2:#0B5C56;--acento-soft:#E3F2EF;
---ok:#166534;--ok-soft:#E5F4EA;--medio:#9A5B00;--medio-soft:#FDF0D9;--alto:#B42318;--alto-soft:#FDE7E5;--foco:#F2B705;color-scheme:light}
+--ok:#166534;--ok-soft:#E5F4EA;--medio:#9A5B00;--medio-soft:#FDF0D9;--alto:#B42318;--alto-soft:#FDE7E5;--foco:#8A5200;--borda:#7B869A;color-scheme:light}
 @media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--papel:#0D1522;--cartao:#152034;--tinta:#E9EEF6;--fraca:#A0AFC6;--linha:#26344C;--acento:#38BDB0;--acento-2:#5FD3C7;--acento-soft:#123532;
---ok:#6EE7A0;--ok-soft:#123323;--medio:#F5B94D;--medio-soft:#3A2A0F;--alto:#FF8A80;--alto-soft:#3D1715;color-scheme:dark}}
+--ok:#6EE7A0;--ok-soft:#123323;--medio:#F5B94D;--medio-soft:#3A2A0F;--alto:#FF8A80;--alto-soft:#3D1715;--foco:#F2B705;--borda:#7486A3;color-scheme:dark}}
 :root[data-theme="dark"]{--papel:#0D1522;--cartao:#152034;--tinta:#E9EEF6;--fraca:#A0AFC6;--linha:#26344C;--acento:#38BDB0;--acento-2:#5FD3C7;--acento-soft:#123532;
---ok:#6EE7A0;--ok-soft:#123323;--medio:#F5B94D;--medio-soft:#3A2A0F;--alto:#FF8A80;--alto-soft:#3D1715;color-scheme:dark}
+--ok:#6EE7A0;--ok-soft:#123323;--medio:#F5B94D;--medio-soft:#3A2A0F;--alto:#FF8A80;--alto-soft:#3D1715;--foco:#F2B705;--borda:#7486A3;color-scheme:dark}
 *{box-sizing:border-box}html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
 body{margin:0;background:var(--papel);color:var(--tinta);font:17px/1.55 "Atkinson Hyperlegible","Segoe UI",system-ui,-apple-system,Roboto,sans-serif;overflow-x:hidden}
 .gut{padding-inline:max(16px,env(safe-area-inset-left,0px))}
@@ -35,7 +35,7 @@ a{color:var(--acento-2);text-underline-offset:3px}
 .q>p.t{font-weight:700;margin:0 0 8px}
 .q>p.h{color:var(--fraca);font-size:14.5px;margin:-4px 0 8px}
 .opts{display:grid;gap:8px}
-label.op{display:flex;gap:10px;align-items:flex-start;min-height:48px;padding:11px 12px;border:1.5px solid var(--linha);border-radius:11px;cursor:pointer;background:var(--cartao)}
+label.op{display:flex;gap:10px;align-items:flex-start;min-height:48px;padding:11px 12px;border:1.5px solid var(--borda);border-radius:11px;cursor:pointer;background:var(--cartao)}
 label.op:has(input:checked){border-color:var(--acento);background:var(--acento-soft)}
 label.op input{margin:3px 0 0;width:20px;height:20px;accent-color:var(--acento);flex:none}
 label.op span small{display:block;color:var(--fraca);font-size:14px}
@@ -43,8 +43,8 @@ label.op span small{display:block;color:var(--fraca);font-size:14px}
 .row{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px}
 .row2{display:grid;grid-template-columns:1fr 1fr;gap:10px}
 .fld label{display:block;font-size:13.5px;color:var(--fraca);margin-bottom:4px}
-input[type=number],input[type=search],select{width:100%;min-height:48px;font:inherit;color:var(--tinta);background:var(--cartao);border:1.5px solid var(--linha);border-radius:10px;padding:10px 12px}
-input:focus-visible,select:focus-visible,button:focus-visible,label.op:focus-within{outline:3px solid var(--foco);outline-offset:2px}
+input[type=number],input[type=search],select{width:100%;min-height:48px;font:inherit;color:var(--tinta);background:var(--cartao);border:1.5px solid var(--borda);border-radius:10px;padding:10px 12px}
+input:focus-visible,select:focus-visible,button:focus-visible,a:focus-visible,summary:focus-visible,label.op:focus-within{outline:3px solid var(--foco);outline-offset:2px}
 button{font:inherit;font-weight:700;min-height:48px;border-radius:11px;border:1.5px solid var(--acento);background:var(--acento);color:#fff;padding:10px 16px;cursor:pointer}
 @media (prefers-color-scheme:dark){:root:not([data-theme="light"]) button{color:#06201D}}
 :root[data-theme="dark"] button{color:#06201D}
@@ -62,7 +62,7 @@ button.sec{background:transparent;color:var(--acento-2)}
 .chips{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0 0;padding:0;list-style:none}
 .chip{display:flex;align-items:center;gap:8px;border:1.5px solid var(--linha);border-radius:999px;padding:6px 6px 6px 12px;background:var(--cartao)}
 .chip b{font-variant-numeric:tabular-nums}
-.chip button{min-height:34px;min-width:34px;padding:0;border-radius:999px;background:transparent;color:var(--fraca);border:1px solid var(--linha)}
+.chip button{min-height:44px;min-width:44px;padding:0;border-radius:999px;background:transparent;color:var(--fraca);border:1px solid var(--borda)}
 .sug{list-style:none;margin:6px 0 0;padding:0;border:1px solid var(--linha);border-radius:10px;overflow:hidden}
 .sug:empty{display:none}
 .sug li button{width:100%;text-align:left;border:0;border-top:1px solid var(--linha);border-radius:0;background:var(--cartao);color:var(--tinta);font-weight:400;display:flex;justify-content:space-between;gap:8px}
@@ -86,6 +86,7 @@ footer p{max-width:64ch}
 .step{position:relative;padding-left:40px;margin:0 0 4px}
 .step::before{counter-increment:s;content:counter(s);position:absolute;left:0;top:14px;width:28px;height:28px;border-radius:50%;background:var(--acento);color:#fff;font-weight:800;display:grid;place-items:center;font-size:14px}
 @media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .step::before{color:#06201D}}
+:root[data-theme="dark"] .step::before{color:#06201D}
 .hide{display:none!important}
 @media print{header,footer .nao-imprime,.btns,.sug{display:none!important}body{background:#fff;color:#000}.card,.res{break-inside:avoid}}
 @media (max-width:380px){.row{grid-template-columns:1fr 1fr}}
@@ -104,18 +105,18 @@ footer p{max-width:64ch}
 <div class="card">
 <p style="font-weight:700;margin:0">Doses diárias totais</p>
 <div class="fld" style="margin-top:10px"><label for="ld_ir">Levodopa liberação imediata ou dispersível <small style="display:block">mg de levodopa/dia (comprimido comum, dispersível, com carbidopa ou benserazida)</small></label><input id="ld_ir" type="number" inputmode="decimal" min="0" step="any" placeholder="0"></div><div class="fld" style="margin-top:10px"><label for="ld_cr">Levodopa liberação controlada <small style="display:block">mg de levodopa/dia (formulações HBS/CR)</small></label><input id="ld_cr" type="number" inputmode="decimal" min="0" step="any" placeholder="0"></div><div class="fld" style="margin-top:10px"><label for="pram">Pramipexol <small style="display:block">mg/dia, dose expressa como sal (dicloridrato) — confira a bula</small></label><input id="pram" type="number" inputmode="decimal" min="0" step="any" placeholder="0"></div><div class="fld" style="margin-top:10px"><label for="ropi">Ropinirol <small style="display:block">mg/dia</small></label><input id="ropi" type="number" inputmode="decimal" min="0" step="any" placeholder="0"></div><div class="fld" style="margin-top:10px"><label for="roti">Rotigotina (adesivo) <small style="display:block">mg/24 h</small></label><input id="roti" type="number" inputmode="decimal" min="0" step="any" placeholder="0"></div><div class="fld" style="margin-top:10px"><label for="rasa">Rasagilina <small style="display:block">mg/dia</small></label><input id="rasa" type="number" inputmode="decimal" min="0" step="any" placeholder="0"></div><div class="fld" style="margin-top:10px"><label for="sele">Selegilina oral <small style="display:block">mg/dia</small></label><input id="sele" type="number" inputmode="decimal" min="0" step="any" placeholder="0"></div><div class="fld" style="margin-top:10px"><label for="safi">Safinamida <small style="display:block">marque a dose diária (50 ou 100 mg = LED fixa de 150)</small></label><select id="safi"><option value="0">não usa</option><option value="50">50 mg/dia</option><option value="100">100 mg/dia</option></select></div><div class="fld" style="margin-top:10px"><label for="aman">Amantadina liberação imediata <small style="display:block">mg/dia</small></label><input id="aman" type="number" inputmode="decimal" min="0" step="any" placeholder="0"></div><div class="fld" style="margin-top:10px"><label for="apo">Apomorfina subcutânea <small style="display:block">mg/dia</small></label><input id="apo" type="number" inputmode="decimal" min="0" step="any" placeholder="0"></div><div class="fld" style="margin-top:10px"><label for="piri">Piribedil <small style="display:block">mg/dia</small></label><input id="piri" type="number" inputmode="decimal" min="0" step="any" placeholder="0"></div><div class="fld" style="margin-top:10px"><label for="bromo">Bromocriptina <small style="display:block">mg/dia</small></label><input id="bromo" type="number" inputmode="decimal" min="0" step="any" placeholder="0"></div>
-<div class="q" style="margin-top:14px;padding-top:14px;border-top:1px solid var(--linha)"><p class="t">Inibidor da COMT</p><p class="h">Aplica-se à levodopa, não à dose do inibidor.</p>
-<div class="opts">
+<div class="q" style="margin-top:14px;padding-top:14px;border-top:1px solid var(--linha)"><p class="t" id="comtt">Inibidor da COMT</p><p class="h">Aplica-se à dose equivalente da levodopa (liberação imediata × 1 + liberação controlada × 0,75), não à dose do inibidor.</p>
+<div class="opts" role="radiogroup" aria-labelledby="comtt">
 <label class="op"><input type="radio" name="comt" value="0" checked><span>Nenhum</span></label>
-<label class="op"><input type="radio" name="comt" value="ent"><span>Entacapona<small>soma 0,33 × a levodopa tomada junto com ela</small></span></label>
-<label class="op"><input type="radio" name="comt" value="opi"><span>Opicapona<small>soma 0,5 × a levodopa do dia</small></span></label>
-<label class="op"><input type="radio" name="comt" value="tol"><span>Tolcapona<small>soma 0,5 × a levodopa do dia</small></span></label>
+<label class="op"><input type="radio" name="comt" value="ent"><span>Entacapona<small>soma 0,33 × a dose equivalente da levodopa tomada junto com ela</small></span></label>
+<label class="op"><input type="radio" name="comt" value="opi"><span>Opicapona<small>soma 0,5 × a dose equivalente da levodopa do dia</small></span></label>
+<label class="op"><input type="radio" name="comt" value="tol"><span>Tolcapona<small>soma 0,5 × a dose equivalente da levodopa do dia</small></span></label>
 </div>
-<div class="fld hide" id="entbox" style="margin-top:10px"><label for="ent_ld">Levodopa tomada com entacapona (mg/dia)<small style="display:block">em branco = toda a levodopa</small></label><input id="ent_ld" type="number" inputmode="decimal" min="0" step="any"></div>
+<div class="fld hide" id="entbox" style="margin-top:10px"><label for="ent_ld">Dose equivalente de levodopa tomada com entacapona (mg/dia)<small style="display:block">em branco = toda a levodopa; se a tomada for de liberação controlada, multiplique os mg por 0,75</small></label><input id="ent_ld" type="number" inputmode="decimal" min="0" step="any"></div>
 </div>
 </div>
 <div id="res" class="res" aria-live="polite" data-n="">
-<p class="big" id="tot">LEDD 0 mg/dia</p><p class="rot" id="rot">Preencha as doses.</p>
+<p class="big" id="tot">LEDD 0 mg/dia</p><p class="rot" id="rot">Preencha as doses.</p><div id="alerta"></div>
 <div class="tblwrap"><table id="tab"><thead><tr><th>Fármaco</th><th class="n">Dose</th><th class="n">Fator</th><th class="n">LED</th></tr></thead><tbody></tbody></table></div>
 <div class="btns"><button type="button" class="sec" data-copia="resumo" onclick="copiar('resumo')">Copiar resumo</button><button type="button" class="sec" onclick="window.print()">Imprimir</button></div>
 <pre id="resumo" class="hide"></pre>
@@ -124,13 +125,15 @@ footer p{max-width:64ch}
 <div class="card"><ul>
 <li>Comparar a carga dopaminérgica entre regimes diferentes, acompanhar a evolução e descrever pacientes em pesquisa.</li>
 <li>Estimar a carga total ao avaliar efeitos adversos (alucinações, hipotensão ortostática, transtorno do controle de impulsos, discinesia).</li>
+<li>É ferramenta de pesquisa e de comparação: o artigo-fonte propõe as fórmulas para comparar regimes entre coortes, não para prescrever.</li>
 <li><b>Não</b> é tabela de troca 1:1. As equivalências são aproximadas e a resposta individual varia; mudanças de esquema exigem titulação e reavaliação clínica.</li>
-<li>Anticolinérgicos (triexifenidil, biperideno) não entram na soma; no idoso, devem ser evitados (Beers 2023).</li>
+<li>Anticolinérgicos (triexifenidil, biperideno) não entram na soma desta página (o artigo-fonte propõe um valor fixo para eles; aqui foram deixados de fora); no idoso, devem ser evitados (Beers 2023).</li>
 <li id="demencia" class="anc">Na demência associada ao Parkinson, psicose e confusão costumam piorar com agonistas e anticolinérgicos antes de piorar com levodopa: a LEDD ajuda a ver de onde vem a carga.</li>
 </ul></div>
 
 <h2 id="fontes">Fontes</h2>
-<ol class="ref"><li>Jost ST, Kaldenbach MA, Antonini A, et al.; International Parkinson and Movement Disorders Society Non-Motor Parkinson Disease Study Group. Levodopa dose equivalency in Parkinson's disease: updated systematic review and proposals. <i>Mov Disord</i>. 2023;38(7):1236-52. PMID 37147135. <a href="https://doi.org/10.1002/mds.29410" rel="noopener">doi:10.1002/mds.29410</a>.</li><li>Tomlinson CL, Stowe R, Patel S, et al. Systematic review of levodopa dose equivalency reporting in Parkinson's disease. <i>Mov Disord</i>. 2010;25(15):2649-53.</li><li>2023 American Geriatrics Society Beers Criteria® Update Expert Panel. <i>J Am Geriatr Soc</i>. 2023;71(7):2052-81.</li></ol>
+<ol class="ref"><li>Jost ST, Kaldenbach MA, Antonini A, et al.; International Parkinson and Movement Disorders Society Non-Motor Parkinson Disease Study Group. Levodopa dose equivalency in Parkinson's disease: updated systematic review and proposals. <i>Mov Disord</i>. 2023;38(7):1236-52. PMID 37147135. <a href="https://doi.org/10.1002/mds.29410" rel="noopener">doi:10.1002/mds.29410</a>.</li><li>Tomlinson CL, Stowe R, Patel S, et al. Systematic review of levodopa dose equivalency reporting in Parkinson's disease. <i>Mov Disord</i>. 2010;25(15):2649-53. PMID 21069833. <a href="https://doi.org/10.1002/mds.23429" rel="noopener">doi:10.1002/mds.23429</a>.</li><li>2023 American Geriatrics Society Beers Criteria® Update Expert Panel. American Geriatrics Society 2023 updated AGS Beers Criteria® for potentially inappropriate medication use in older adults. <i>J Am Geriatr Soc</i>. 2023;71(7):2052-81. PMID 37139824. <a href="https://doi.org/10.1111/jgs.18372" rel="noopener">doi:10.1111/jgs.18372</a>.</li></ol>
+<p><b>Instrumento de apoio à decisão. Não substitui o julgamento clínico.</b></p>
 <p style="font-size:14.5px;color:var(--fraca)">Atualizações de alto impacto sobre o tema: <a href="../../atualizacoes/parkinson/">parkinson</a>.</p>
 </div></main>
 <footer><div class="wrap gut">
@@ -144,13 +147,26 @@ function copiar(id){const t=document.getElementById(id).innerText;navigator.clip
 const F=[{"i": "ld_ir", "n": "Levodopa liberação imediata ou dispersível", "f": 1, "t": "dd"}, {"i": "ld_cr", "n": "Levodopa liberação controlada", "f": 0.75, "t": "dd"}, {"i": "pram", "n": "Pramipexol", "f": 100, "t": "dd"}, {"i": "ropi", "n": "Ropinirol", "f": 20, "t": "dd"}, {"i": "roti", "n": "Rotigotina (adesivo)", "f": 30.3, "t": "dd"}, {"i": "rasa", "n": "Rasagilina", "f": 100, "t": "dd"}, {"i": "sele", "n": "Selegilina oral", "f": 10, "t": "dd"}, {"i": "safi", "n": "Safinamida", "f": 150, "t": "fix"}, {"i": "aman", "n": "Amantadina liberação imediata", "f": 1, "t": "dd"}, {"i": "apo", "n": "Apomorfina subcutânea", "f": 10, "t": "dd"}, {"i": "piri", "n": "Piribedil", "f": 1, "t": "dd"}, {"i": "bromo", "n": "Bromocriptina", "f": 10, "t": "dd"}];
 const $=s=>document.querySelector(s);const v=id=>{const x=parseFloat(String($('#'+id).value).replace(',','.'));return isFinite(x)&&x>0?x:0};
 const fmt=x=>(Math.round(x*10)/10).toLocaleString('pt-BR');
-function calc(){let rows=[],tot=0;F.forEach(d=>{const dd=v(d.i);if(!dd)return;const led=d.t==='fix'?d.f:dd*d.f;tot+=led;rows.push([d.n,fmt(dd)+' mg',d.t==='fix'?'fixo':'× '+String(d.f).replace('.',','),led])});
-const ld=v('ld_ir')+v('ld_cr');const c=(document.querySelector('input[name=comt]:checked')||{}).value;$('#entbox').classList.toggle('hide',c!=='ent');
-if(c&&c!=='0'&&ld>0){let base=ld,f=.5,nm=c==='opi'?'Opicapona':'Tolcapona';if(c==='ent'){f=.33;nm='Entacapona';const e=v('ent_ld');if(e)base=Math.min(e,ld)}const led=base*f;tot+=led;rows.push([nm+' (sobre levodopa)',fmt(base)+' mg LD','× '+String(f).replace('.',','),led])}
+// Tetos de plausibilidade: só disparam aviso de conferência de unidade; não entram na conta.
+const TETO={ld_ir:3000,ld_cr:3000,pram:6,ropi:36,roti:24,rasa:2,sele:20,aman:600,apo:200,piri:400,bromo:120};
+function soma(doses,comt,entLd){
+// doses: {id: mg/dia}; comt: '0'|'ent'|'opi'|'tol'; entLd: dose equivalente de levodopa tomada com entacapona (0 = toda)
+let rows=[],tot=0,avisos=[];
+F.forEach(d=>{const dd=doses[d.i]||0;if(!(dd>0))return;const led=d.t==='fix'?d.f:dd*d.f;tot+=led;rows.push([d.n,fmt(dd)+' mg',d.t==='fix'?'fixo':'× '+String(d.f).replace('.',','),led]);
+if(TETO[d.i]&&dd>TETO[d.i])avisos.push(d.n+': '+fmt(dd)+' mg/dia é valor incomum. Confira se digitou a dose diária total e a unidade certa.')});
+const ledLD=(doses.ld_ir||0)*1+(doses.ld_cr||0)*0.75;
+if(comt&&comt!=='0'){if(ledLD>0){let base=ledLD,f=.5,nm=comt==='opi'?'Opicapona':'Tolcapona';if(comt==='ent'){f=.33;nm='Entacapona';if(entLd>0){if(entLd>ledLD)avisos.push('Levodopa com entacapona maior que a levodopa total: usada a levodopa total.');base=Math.min(entLd,ledLD)}}
+const led=base*f;tot+=led;rows.push([nm+' (sobre a dose equivalente de levodopa)',fmt(base)+' mg',' × '+String(f).replace('.',','),led])}
+else avisos.push('Inibidor da COMT marcado sem levodopa: nada foi somado, porque o fator se aplica à levodopa.')}
+return {rows,tot,avisos}}
+function calc(){const doses={};F.forEach(d=>doses[d.i]=v(d.i));const c=(document.querySelector('input[name=comt]:checked')||{}).value;$('#entbox').classList.toggle('hide',c!=='ent');
+const r=soma(doses,c,c==='ent'?v('ent_ld'):0),rows=r.rows,tot=r.tot;
+document.querySelectorAll('.card input[type=number]').forEach(e=>{if(String(e.value).trim()!==''&&!(parseFloat(String(e.value).replace(',','.'))>=0))r.avisos.push('Há campo com valor inválido (negativo ou não numérico): foi ignorado.')});
+$('#alerta').innerHTML=r.avisos.length?'<ul>'+[...new Set(r.avisos)].map(x=>'<li>'+x+'</li>').join('')+'</ul>':'';
 $('#tab tbody').innerHTML=rows.map(r=>'<tr><td>'+r[0]+'</td><td class="n">'+r[1]+'</td><td class="n">'+r[2]+'</td><td class="n">'+fmt(r[3])+'</td></tr>').join('');
-$('#tot').textContent='LEDD '+fmt(tot)+' mg/dia';$('#res').dataset.n=rows.length?'ok':'';
+$('#tot').textContent='LEDD '+fmt(tot)+' mg/dia';$('#res').dataset.n=rows.length?(r.avisos.length?'medio':'ok'):'';
 $('#rot').textContent=rows.length?'Soma de '+rows.length+' componente(s), fatores de Jost et al., 2023.':'Preencha as doses.';
-$('#resumo').textContent='LEDD (Jost et al., Mov Disord 2023): '+fmt(tot)+' mg/dia. Componentes: '+rows.map(r=>r[0]+' '+r[1]+' → '+fmt(r[3])).join('; ')+'.';}
+$('#resumo').textContent=rows.length?'LEDD (Jost et al., Mov Disord 2023): '+fmt(tot)+' mg/dia. Componentes: '+rows.map(r=>r[0]+' '+r[1]+' → '+fmt(r[3])).join('; ')+'.':'';}
 document.addEventListener('input',calc);document.addEventListener('change',calc);calc();
 </script>
 </body>

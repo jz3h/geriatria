@@ -8,11 +8,11 @@
 <meta name="robots" content="index,follow">
 <style>
 :root{--papel:#F7F5F0;--cartao:#FFFFFF;--tinta:#10233F;--fraca:#55657E;--linha:#E2DDD3;--acento:#0F766E;--acento-2:#0B5C56;--acento-soft:#E3F2EF;
---ok:#166534;--ok-soft:#E5F4EA;--medio:#9A5B00;--medio-soft:#FDF0D9;--alto:#B42318;--alto-soft:#FDE7E5;--foco:#F2B705;color-scheme:light}
+--ok:#166534;--ok-soft:#E5F4EA;--medio:#9A5B00;--medio-soft:#FDF0D9;--alto:#B42318;--alto-soft:#FDE7E5;--foco:#8A5200;--borda:#7B869A;color-scheme:light}
 @media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--papel:#0D1522;--cartao:#152034;--tinta:#E9EEF6;--fraca:#A0AFC6;--linha:#26344C;--acento:#38BDB0;--acento-2:#5FD3C7;--acento-soft:#123532;
---ok:#6EE7A0;--ok-soft:#123323;--medio:#F5B94D;--medio-soft:#3A2A0F;--alto:#FF8A80;--alto-soft:#3D1715;color-scheme:dark}}
+--ok:#6EE7A0;--ok-soft:#123323;--medio:#F5B94D;--medio-soft:#3A2A0F;--alto:#FF8A80;--alto-soft:#3D1715;--foco:#F2B705;--borda:#7486A3;color-scheme:dark}}
 :root[data-theme="dark"]{--papel:#0D1522;--cartao:#152034;--tinta:#E9EEF6;--fraca:#A0AFC6;--linha:#26344C;--acento:#38BDB0;--acento-2:#5FD3C7;--acento-soft:#123532;
---ok:#6EE7A0;--ok-soft:#123323;--medio:#F5B94D;--medio-soft:#3A2A0F;--alto:#FF8A80;--alto-soft:#3D1715;color-scheme:dark}
+--ok:#6EE7A0;--ok-soft:#123323;--medio:#F5B94D;--medio-soft:#3A2A0F;--alto:#FF8A80;--alto-soft:#3D1715;--foco:#F2B705;--borda:#7486A3;color-scheme:dark}
 *{box-sizing:border-box}html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
 body{margin:0;background:var(--papel);color:var(--tinta);font:17px/1.55 "Atkinson Hyperlegible","Segoe UI",system-ui,-apple-system,Roboto,sans-serif;overflow-x:hidden}
 .gut{padding-inline:max(16px,env(safe-area-inset-left,0px))}
@@ -35,7 +35,7 @@ a{color:var(--acento-2);text-underline-offset:3px}
 .q>p.t{font-weight:700;margin:0 0 8px}
 .q>p.h{color:var(--fraca);font-size:14.5px;margin:-4px 0 8px}
 .opts{display:grid;gap:8px}
-label.op{display:flex;gap:10px;align-items:flex-start;min-height:48px;padding:11px 12px;border:1.5px solid var(--linha);border-radius:11px;cursor:pointer;background:var(--cartao)}
+label.op{display:flex;gap:10px;align-items:flex-start;min-height:48px;padding:11px 12px;border:1.5px solid var(--borda);border-radius:11px;cursor:pointer;background:var(--cartao)}
 label.op:has(input:checked){border-color:var(--acento);background:var(--acento-soft)}
 label.op input{margin:3px 0 0;width:20px;height:20px;accent-color:var(--acento);flex:none}
 label.op span small{display:block;color:var(--fraca);font-size:14px}
@@ -43,8 +43,8 @@ label.op span small{display:block;color:var(--fraca);font-size:14px}
 .row{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px}
 .row2{display:grid;grid-template-columns:1fr 1fr;gap:10px}
 .fld label{display:block;font-size:13.5px;color:var(--fraca);margin-bottom:4px}
-input[type=number],input[type=search],select{width:100%;min-height:48px;font:inherit;color:var(--tinta);background:var(--cartao);border:1.5px solid var(--linha);border-radius:10px;padding:10px 12px}
-input:focus-visible,select:focus-visible,button:focus-visible,label.op:focus-within{outline:3px solid var(--foco);outline-offset:2px}
+input[type=number],input[type=search],select{width:100%;min-height:48px;font:inherit;color:var(--tinta);background:var(--cartao);border:1.5px solid var(--borda);border-radius:10px;padding:10px 12px}
+input:focus-visible,select:focus-visible,button:focus-visible,a:focus-visible,summary:focus-visible,label.op:focus-within{outline:3px solid var(--foco);outline-offset:2px}
 button{font:inherit;font-weight:700;min-height:48px;border-radius:11px;border:1.5px solid var(--acento);background:var(--acento);color:#fff;padding:10px 16px;cursor:pointer}
 @media (prefers-color-scheme:dark){:root:not([data-theme="light"]) button{color:#06201D}}
 :root[data-theme="dark"] button{color:#06201D}
@@ -62,7 +62,7 @@ button.sec{background:transparent;color:var(--acento-2)}
 .chips{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0 0;padding:0;list-style:none}
 .chip{display:flex;align-items:center;gap:8px;border:1.5px solid var(--linha);border-radius:999px;padding:6px 6px 6px 12px;background:var(--cartao)}
 .chip b{font-variant-numeric:tabular-nums}
-.chip button{min-height:34px;min-width:34px;padding:0;border-radius:999px;background:transparent;color:var(--fraca);border:1px solid var(--linha)}
+.chip button{min-height:44px;min-width:44px;padding:0;border-radius:999px;background:transparent;color:var(--fraca);border:1px solid var(--borda)}
 .sug{list-style:none;margin:6px 0 0;padding:0;border:1px solid var(--linha);border-radius:10px;overflow:hidden}
 .sug:empty{display:none}
 .sug li button{width:100%;text-align:left;border:0;border-top:1px solid var(--linha);border-radius:0;background:var(--cartao);color:var(--tinta);font-weight:400;display:flex;justify-content:space-between;gap:8px}
@@ -86,6 +86,7 @@ footer p{max-width:64ch}
 .step{position:relative;padding-left:40px;margin:0 0 4px}
 .step::before{counter-increment:s;content:counter(s);position:absolute;left:0;top:14px;width:28px;height:28px;border-radius:50%;background:var(--acento);color:#fff;font-weight:800;display:grid;place-items:center;font-size:14px}
 @media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .step::before{color:#06201D}}
+:root[data-theme="dark"] .step::before{color:#06201D}
 .hide{display:none!important}
 @media print{header,footer .nao-imprime,.btns,.sug{display:none!important}body{background:#fff;color:#000}.card,.res{break-inside:avoid}}
 @media (max-width:380px){.row{grid-template-columns:1fr 1fr}}
@@ -104,15 +105,15 @@ footer p{max-width:64ch}
 <div class="card">
 <p class="h" style="color:var(--fraca);font-size:14.5px;margin:0">Meça após ≥ 5 min deitado; depois em pé, com 1 e 3 minutos. Pergunte por sintomas a cada medida.</p>
 <p class="t" style="margin:12px 0 6px">Deitado (após 5 min)</p><div class="row">
-<div class="fld"><label for="ds">PAS</label><input id="ds" type="number" inputmode="numeric" min="40" max="300" placeholder="mmHg"></div>
-<div class="fld"><label for="dd">PAD</label><input id="dd" type="number" inputmode="numeric" min="20" max="200" placeholder="mmHg"></div>
-<div class="fld"><label for="df">FC</label><input id="df" type="number" inputmode="numeric" min="20" max="250" placeholder="bpm"></div></div><p class="t" style="margin:12px 0 6px">Em pé — 1 minuto</p><div class="row">
-<div class="fld"><label for="us">PAS</label><input id="us" type="number" inputmode="numeric" min="40" max="300" placeholder="mmHg"></div>
-<div class="fld"><label for="ud">PAD</label><input id="ud" type="number" inputmode="numeric" min="20" max="200" placeholder="mmHg"></div>
-<div class="fld"><label for="uf">FC</label><input id="uf" type="number" inputmode="numeric" min="20" max="250" placeholder="bpm"></div></div><p class="t" style="margin:12px 0 6px">Em pé — 3 minutos</p><div class="row">
-<div class="fld"><label for="ts">PAS</label><input id="ts" type="number" inputmode="numeric" min="40" max="300" placeholder="mmHg"></div>
-<div class="fld"><label for="td">PAD</label><input id="td" type="number" inputmode="numeric" min="20" max="200" placeholder="mmHg"></div>
-<div class="fld"><label for="tf">FC</label><input id="tf" type="number" inputmode="numeric" min="20" max="250" placeholder="bpm"></div></div>
+<div class="fld"><label for="ds">PAS</label><input id="ds" aria-label="Pressão sistólica deitado" type="number" inputmode="numeric" min="40" max="300" placeholder="mmHg"></div>
+<div class="fld"><label for="dd">PAD</label><input id="dd" aria-label="Pressão diastólica deitado" type="number" inputmode="numeric" min="20" max="200" placeholder="mmHg"></div>
+<div class="fld"><label for="df">FC</label><input id="df" aria-label="Frequência cardíaca deitado" type="number" inputmode="numeric" min="20" max="250" placeholder="bpm"></div></div><p class="t" style="margin:12px 0 6px">Em pé — 1 minuto</p><div class="row">
+<div class="fld"><label for="us">PAS</label><input id="us" aria-label="Pressão sistólica em pé, 1 minuto" type="number" inputmode="numeric" min="40" max="300" placeholder="mmHg"></div>
+<div class="fld"><label for="ud">PAD</label><input id="ud" aria-label="Pressão diastólica em pé, 1 minuto" type="number" inputmode="numeric" min="20" max="200" placeholder="mmHg"></div>
+<div class="fld"><label for="uf">FC</label><input id="uf" aria-label="Frequência cardíaca em pé, 1 minuto" type="number" inputmode="numeric" min="20" max="250" placeholder="bpm"></div></div><p class="t" style="margin:12px 0 6px">Em pé — 3 minutos</p><div class="row">
+<div class="fld"><label for="ts">PAS</label><input id="ts" aria-label="Pressão sistólica em pé, 3 minutos" type="number" inputmode="numeric" min="40" max="300" placeholder="mmHg"></div>
+<div class="fld"><label for="td">PAD</label><input id="td" aria-label="Pressão diastólica em pé, 3 minutos" type="number" inputmode="numeric" min="20" max="200" placeholder="mmHg"></div>
+<div class="fld"><label for="tf">FC</label><input id="tf" aria-label="Frequência cardíaca em pé, 3 minutos" type="number" inputmode="numeric" min="20" max="250" placeholder="bpm"></div></div>
 <label class="op" style="margin-top:12px"><input type="checkbox" id="sint"><span>Teve sintomas ao ficar de pé<small>tontura, escurecimento visual, fraqueza, quase desmaio</small></span></label>
 </div>
 <div id="res" class="res" aria-live="polite" data-n="">
@@ -123,9 +124,9 @@ footer p{max-width:64ch}
 <h2 id="exame-fisico" class="anc">Critérios usados</h2>
 <div class="card">
 <ul>
-<li><b>Hipotensão ortostática (HO) clássica:</b> queda sustentada ≥ 20 mmHg na PAS ou ≥ 10 mmHg na PAD em até 3 minutos de pé.</li>
-<li><b>Com hipertensão supina</b> (PAS ≥ 140 ou PAD ≥ 90 deitado): critério mais adequado é queda ≥ 30 mmHg na PAS ou ≥ 15 mmHg na PAD.</li>
-<li><b>Pista de HO neurogênica:</b> ΔFC/ΔPAS &lt; 0,5 bpm/mmHg no 3º minuto (a FC quase não sobe apesar da queda da pressão). Interprete com cautela em quem usa betabloqueador ou tem marca-passo.</li>
+<li><b>Hipotensão ortostática (HO) clássica:</b> queda sustentada ≥ 20 mmHg na PAS ou ≥ 10 mmHg na PAD em até 3 minutos de pé (ou em inclinação de pelo menos 60°).</li>
+<li><b>Com pressão elevada deitado</b> (aqui, PAS ≥ 140 ou PAD ≥ 90 mmHg): queda ≥ 30 mmHg na PAS ou ≥ 15 mmHg na PAD <b>pode ser</b> critério mais adequado, porque a queda depende da pressão de partida. A página mostra as duas leituras: quem atinge 20/10 mas não 30/15 aparece como “critério clássico atingido”, para decisão clínica.</li>
+<li><b>Pista de HO neurogênica:</b> ΔFC/ΔPAS &lt; 0,5 bpm/mmHg no 3º minuto (a FC quase não sobe apesar da queda da pressão). O corte vem de estudo com teste de inclinação em pessoas com HO e ritmo sinusal; a página só calcula a razão quando a PAS cai ≥ 20 mmHg. Não vale em fibrilação atrial ou marca-passo; cautela com betabloqueador e outros cronotrópicos negativos.</li>
 <li><b>HO tardia:</b> queda que aparece só após 3 minutos. Se há sintomas e o teste foi negativo, prolongue até 10 minutos ou peça teste de inclinação.</li>
 </ul></div>
 <h3>Próximos passos</h3>
@@ -137,7 +138,8 @@ footer p{max-width:64ch}
 </ul>
 
 <h2 id="fontes">Fontes</h2>
-<ol class="ref"><li>Freeman R, Wieling W, Axelrod FB, et al. Consensus statement on the definition of orthostatic hypotension, neurally mediated syncope and the postural tachycardia syndrome. <i>Clin Auton Res</i>. 2011;21(2):69-72.</li><li>Fanciulli A, Jordan J, Biaggioni I, et al. Consensus statement on the definition of neurogenic supine hypertension in cardiovascular autonomic failure by the American Autonomic Society and the European Federation of Autonomic Societies. <i>Clin Auton Res</i>. 2018;28(4):355-62.</li><li>Norcliffe-Kaufmann L, Kaufmann H, Palma JA, et al. Orthostatic heart rate changes in patients with autonomic failure caused by neurodegenerative synucleinopathies. <i>Ann Neurol</i>. 2018;83(3):522-31.</li></ol>
+<ol class="ref"><li>Freeman R, Wieling W, Axelrod FB, et al. Consensus statement on the definition of orthostatic hypotension, neurally mediated syncope and the postural tachycardia syndrome. <i>Clin Auton Res</i>. 2011;21(2):69-72. PMID 21431947. <a href="https://doi.org/10.1007/s10286-011-0119-5" rel="noopener">doi:10.1007/s10286-011-0119-5</a>.</li><li>Gibbons CH, Schmidt P, Biaggioni I, et al. The recommendations of a consensus panel for the screening, diagnosis, and treatment of neurogenic orthostatic hypotension and associated supine hypertension. <i>J Neurol</i>. 2017;264(8):1567-82. PMID 28050656. <a href="https://doi.org/10.1007/s00415-016-8375-x" rel="noopener">doi:10.1007/s00415-016-8375-x</a>.</li><li>Fanciulli A, Jordan J, Biaggioni I, et al. Consensus statement on the definition of neurogenic supine hypertension in cardiovascular autonomic failure by the American Autonomic Society and the European Federation of Autonomic Societies. <i>Clin Auton Res</i>. 2018;28(4):355-62. PMID 29766366. <a href="https://doi.org/10.1007/s10286-018-0529-8" rel="noopener">doi:10.1007/s10286-018-0529-8</a>.</li><li>Norcliffe-Kaufmann L, Kaufmann H, Palma JA, et al. Orthostatic heart rate changes in patients with autonomic failure caused by neurodegenerative synucleinopathies. <i>Ann Neurol</i>. 2018;83(3):522-31. PMID 29405350. <a href="https://doi.org/10.1002/ana.25170" rel="noopener">doi:10.1002/ana.25170</a>.</li></ol>
+<p><b>Instrumento de apoio à decisão. Não substitui o julgamento clínico.</b></p>
 <p style="font-size:14.5px;color:var(--fraca)">Atualizações de alto impacto sobre o tema: <a href="../../atualizacoes/aga/">aga</a> · <a href="../../atualizacoes/tontura/">tontura</a>.</p>
 </div></main>
 <footer><div class="wrap gut">
@@ -149,20 +151,41 @@ footer p{max-width:64ch}
 <script>
 function copiar(id){const t=document.getElementById(id).innerText;navigator.clipboard&&navigator.clipboard.writeText(t).then(()=>{const b=document.querySelector('[data-copia="'+id+'"]');if(b){const o=b.textContent;b.textContent='Copiado';setTimeout(()=>b.textContent=o,1500)}}).catch(()=>{});}
 
-const $=s=>document.querySelector(s);const n=id=>{const v=parseFloat($(id).value);return isFinite(v)&&v>0?v:null};
-function calc(){const ds=n('#ds'),dd=n('#dd'),df=n('#df');const m=[['1 min',n('#us'),n('#ud'),n('#uf')],['3 min',n('#ts'),n('#td'),n('#tf')]].filter(x=>x[1]!==null&&x[2]!==null);
-const R=$('#res');if(ds===null||dd===null||!m.length){R.dataset.n='';$('#cat').textContent='—';$('#rot').textContent='Preencha as medidas deitado e em pé.';$('#det').innerHTML='';$('#resumo').textContent='';return}
-const sup=ds>=140||dd>=90,cs=sup?30:20,cd=sup?15:10;
-const q=m.map(([t,s,d,f])=>({t,s:ds-s,d:dd-d,f:(f!==null&&df!==null)?f-df:null,pos:(ds-s)>=cs||(dd-d)>=cd}));
-const ult=q[q.length-1],alg=q.some(x=>x.pos),sust=ult.pos;let cat,rot,nv,det=[];
-q.forEach(x=>det.push(x.t+': ΔPAS −'+x.s+' / ΔPAD −'+x.d+' mmHg'+(x.f!==null?' · ΔFC '+(x.f>=0?'+':'')+x.f+' bpm':'')));
-if(sup)det.push('Hipertensão supina ('+ds+'/'+dd+' mmHg): usado o critério de 30/15 mmHg.');
-if(sust){cat='Hipotensão ortostática';nv='alto';rot='Queda ≥ '+cs+'/'+cd+' mmHg mantida em '+ult.t+'.';
-if(ult.f!==null&&ult.s>0){const r=ult.f/ult.s;det.push('ΔFC/ΔPAS = '+r.toFixed(2).replace('.',',')+' bpm/mmHg → '+(r<0.5?'sugere HO neurogênica.':'sugere HO não neurogênica (ex.: volume, fármacos).'))}}
-else if(alg){cat='Queda transitória';nv='medio';rot='Critério atingido no 1º minuto, mas não mantido no 3º.';det.push('Repita a medida; HO inicial verdadeira (< 15 s) exige medida batimento a batimento.')}
-else{cat='Sem HO pelo critério';nv=$('#sint').checked?'medio':'ok';rot=$('#sint').checked?'Sintomático sem queda pressórica: prolongar até 10 min ou teste de inclinação.':'Sem queda ≥ '+cs+'/'+cd+' mmHg em até 3 min.'}
-R.dataset.n=nv;$('#cat').textContent=cat;$('#rot').textContent=rot;$('#det').innerHTML='<ul>'+det.map(x=>'<li>'+x+'</li>').join('')+'</ul>';
-$('#resumo').textContent='Teste ortostático: deitado '+ds+'/'+dd+' mmHg'+(df?', FC '+df:'')+'. '+det.join('; ')+'. Conclusão: '+cat+' — '+rot+($('#sint').checked?' Sintomático.':'');}
+const $=s=>document.querySelector(s);
+const FX={s:[40,300,'PAS'],d:[20,200,'PAD'],f:[20,250,'FC']};
+function le(id,erros){const bruto=String($('#'+id).value).trim();if(bruto==='')return null;const v=parseFloat(bruto.replace(',','.'));const L=FX[id[1]];const onde={d:'deitado',u:'em pé 1 min',t:'em pé 3 min'}[id[0]];
+if(!isFinite(v)||v<L[0]||v>L[1]){erros.push(L[2]+' '+onde+': valor fora da faixa aceita ('+L[0]+' a '+L[1]+').');return NaN}return v}
+const sinal=x=>(x>0?'−':x<0?'+':'')+Math.abs(x);
+function avalia(ds,dd,df,medidas,sint){
+// medidas: [[rotulo,PAS,PAD,FC|null],...] já validadas
+const sup=ds>=140||dd>=90;
+const q=medidas.map(([t,s,d,f])=>({t,s:ds-s,d:dd-d,f:(f!==null&&df!==null)?f-df:null,cl:(ds-s)>=20||(dd-d)>=10,es:(ds-s)>=30||(dd-d)>=15}));
+const ult=q[q.length-1],so1=q.length===1&&ult.t==='1 min';let cat,rot,nv,det=[];
+q.forEach(x=>det.push(x.t+': ΔPAS '+sinal(x.s)+' / ΔPAD '+sinal(x.d)+' mmHg'+(x.f!==null?' · ΔFC '+(x.f>=0?'+':'−')+Math.abs(x.f)+' bpm':'')));
+if(sup)det.push('Pressão elevada deitado ('+ds+'/'+dd+' mmHg): mostrado também o critério de 30/15 mmHg.');
+const pos=x=>sup?x.es:x.cl;
+if(pos(ult)){cat='Hipotensão ortostática';nv='alto';rot='Queda ≥ '+(sup?'30/15':'20/10')+' mmHg em '+ult.t+'.';}
+else if(sup&&ult.cl){cat='Critério clássico atingido';nv='medio';rot='Queda ≥ 20/10 mmHg em '+ult.t+', abaixo de 30/15 mmHg; com pressão elevada deitado, o limiar de 30/15 pode ser mais adequado. Decisão clínica.';}
+else if(q.some(x=>pos(x)||x.cl)){cat='Queda transitória';nv='medio';rot='Critério atingido no 1º minuto, mas não mantido no 3º.';det.push('Repita a medida; HO inicial verdadeira (< 15 s) exige medida batimento a batimento.')}
+else{cat='Sem HO pelo critério';nv=sint?'medio':'ok';rot=sint?'Sintomático sem queda pressórica: prolongar até 10 min ou teste de inclinação.':'Sem queda ≥ 20/10 mmHg em até 3 min.'}
+if(so1&&cat!=='Sem HO pelo critério')det.push('Só há medida de 1 minuto: confirme com a de 3 minutos para dizer que a queda é sustentada.');
+if(so1&&cat==='Sem HO pelo critério')det.push('Só há medida de 1 minuto: meça também aos 3 minutos.');
+if((cat==='Hipotensão ortostática'||cat==='Critério clássico atingido')&&ult.f!==null){
+ if(ult.s>=20){const r=ult.f/ult.s;det.push('ΔFC/ΔPAS = '+r.toFixed(2).replace('.',',')+' bpm/mmHg → '+(r<0.5?'sugere HO neurogênica.':'sugere HO não neurogênica (ex.: volume, fármacos).')+' Só vale em ritmo sinusal.')}
+ else det.push('Razão ΔFC/ΔPAS não calculada: a PAS caiu menos de 20 mmHg.')}
+return {cat,rot,nv,det,sup}}
+function calc(){const erros=[];const ds=le('ds',erros),dd=le('dd',erros),df0=le('df',erros);
+const bruto=[['1 min',le('us',erros),le('ud',erros),le('uf',erros)],['3 min',le('ts',erros),le('td',erros),le('tf',erros)]];
+const R=$('#res');const vazio=msg=>{R.dataset.n='';$('#cat').textContent='—';$('#rot').textContent=msg;$('#det').innerHTML=erros.length?'<ul>'+erros.map(x=>'<li>'+x+'</li>').join('')+'</ul>':'';$('#resumo').textContent=''};
+const ok=x=>x!==null&&!isNaN(x);
+if(ok(ds)&&ok(dd)&&ds<=dd)erros.push('Deitado: a PAS precisa ser maior que a PAD.');
+bruto.forEach(m=>{if(ok(m[1])&&ok(m[2])&&m[1]<=m[2]){erros.push('Em pé '+m[0]+': a PAS precisa ser maior que a PAD.');m[1]=NaN}});
+bruto.forEach(m=>{if((m[1]===null)!==(m[2]===null))erros.push('Em pé '+m[0]+': preencha PAS e PAD.')});
+const m=bruto.filter(x=>ok(x[1])&&ok(x[2])).map(x=>[x[0],x[1],x[2],ok(x[3])?x[3]:null]);
+if(!ok(ds)||!ok(dd)||ds<=dd||!m.length){vazio(erros.length?'Corrija os valores abaixo.':'Preencha as medidas deitado e em pé.');return}
+const df=ok(df0)?df0:null,sint=$('#sint').checked;const r=avalia(ds,dd,df,m,sint);const det=r.det.concat(erros);
+R.dataset.n=r.nv;$('#cat').textContent=r.cat;$('#rot').textContent=r.rot;$('#det').innerHTML='<ul>'+det.map(x=>'<li>'+x+'</li>').join('')+'</ul>';
+$('#resumo').textContent='Teste ortostático: deitado '+ds+'/'+dd+' mmHg'+(df?', FC '+df:'')+'. '+r.det.join('; ')+'. Conclusão: '+r.cat+' — '+r.rot+(sint?' Sintomático.':'');}
 document.addEventListener('input',calc);calc();
 </script>
 </body>

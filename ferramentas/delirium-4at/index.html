@@ -8,11 +8,11 @@
 <meta name="robots" content="index,follow">
 <style>
 :root{--papel:#F7F5F0;--cartao:#FFFFFF;--tinta:#10233F;--fraca:#55657E;--linha:#E2DDD3;--acento:#0F766E;--acento-2:#0B5C56;--acento-soft:#E3F2EF;
---ok:#166534;--ok-soft:#E5F4EA;--medio:#9A5B00;--medio-soft:#FDF0D9;--alto:#B42318;--alto-soft:#FDE7E5;--foco:#F2B705;color-scheme:light}
+--ok:#166534;--ok-soft:#E5F4EA;--medio:#9A5B00;--medio-soft:#FDF0D9;--alto:#B42318;--alto-soft:#FDE7E5;--foco:#8A5200;--borda:#7B869A;color-scheme:light}
 @media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--papel:#0D1522;--cartao:#152034;--tinta:#E9EEF6;--fraca:#A0AFC6;--linha:#26344C;--acento:#38BDB0;--acento-2:#5FD3C7;--acento-soft:#123532;
---ok:#6EE7A0;--ok-soft:#123323;--medio:#F5B94D;--medio-soft:#3A2A0F;--alto:#FF8A80;--alto-soft:#3D1715;color-scheme:dark}}
+--ok:#6EE7A0;--ok-soft:#123323;--medio:#F5B94D;--medio-soft:#3A2A0F;--alto:#FF8A80;--alto-soft:#3D1715;--foco:#F2B705;--borda:#7486A3;color-scheme:dark}}
 :root[data-theme="dark"]{--papel:#0D1522;--cartao:#152034;--tinta:#E9EEF6;--fraca:#A0AFC6;--linha:#26344C;--acento:#38BDB0;--acento-2:#5FD3C7;--acento-soft:#123532;
---ok:#6EE7A0;--ok-soft:#123323;--medio:#F5B94D;--medio-soft:#3A2A0F;--alto:#FF8A80;--alto-soft:#3D1715;color-scheme:dark}
+--ok:#6EE7A0;--ok-soft:#123323;--medio:#F5B94D;--medio-soft:#3A2A0F;--alto:#FF8A80;--alto-soft:#3D1715;--foco:#F2B705;--borda:#7486A3;color-scheme:dark}
 *{box-sizing:border-box}html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
 body{margin:0;background:var(--papel);color:var(--tinta);font:17px/1.55 "Atkinson Hyperlegible","Segoe UI",system-ui,-apple-system,Roboto,sans-serif;overflow-x:hidden}
 .gut{padding-inline:max(16px,env(safe-area-inset-left,0px))}
@@ -35,7 +35,7 @@ a{color:var(--acento-2);text-underline-offset:3px}
 .q>p.t{font-weight:700;margin:0 0 8px}
 .q>p.h{color:var(--fraca);font-size:14.5px;margin:-4px 0 8px}
 .opts{display:grid;gap:8px}
-label.op{display:flex;gap:10px;align-items:flex-start;min-height:48px;padding:11px 12px;border:1.5px solid var(--linha);border-radius:11px;cursor:pointer;background:var(--cartao)}
+label.op{display:flex;gap:10px;align-items:flex-start;min-height:48px;padding:11px 12px;border:1.5px solid var(--borda);border-radius:11px;cursor:pointer;background:var(--cartao)}
 label.op:has(input:checked){border-color:var(--acento);background:var(--acento-soft)}
 label.op input{margin:3px 0 0;width:20px;height:20px;accent-color:var(--acento);flex:none}
 label.op span small{display:block;color:var(--fraca);font-size:14px}
@@ -43,8 +43,8 @@ label.op span small{display:block;color:var(--fraca);font-size:14px}
 .row{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px}
 .row2{display:grid;grid-template-columns:1fr 1fr;gap:10px}
 .fld label{display:block;font-size:13.5px;color:var(--fraca);margin-bottom:4px}
-input[type=number],input[type=search],select{width:100%;min-height:48px;font:inherit;color:var(--tinta);background:var(--cartao);border:1.5px solid var(--linha);border-radius:10px;padding:10px 12px}
-input:focus-visible,select:focus-visible,button:focus-visible,label.op:focus-within{outline:3px solid var(--foco);outline-offset:2px}
+input[type=number],input[type=search],select{width:100%;min-height:48px;font:inherit;color:var(--tinta);background:var(--cartao);border:1.5px solid var(--borda);border-radius:10px;padding:10px 12px}
+input:focus-visible,select:focus-visible,button:focus-visible,a:focus-visible,summary:focus-visible,label.op:focus-within{outline:3px solid var(--foco);outline-offset:2px}
 button{font:inherit;font-weight:700;min-height:48px;border-radius:11px;border:1.5px solid var(--acento);background:var(--acento);color:#fff;padding:10px 16px;cursor:pointer}
 @media (prefers-color-scheme:dark){:root:not([data-theme="light"]) button{color:#06201D}}
 :root[data-theme="dark"] button{color:#06201D}
@@ -62,7 +62,7 @@ button.sec{background:transparent;color:var(--acento-2)}
 .chips{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0 0;padding:0;list-style:none}
 .chip{display:flex;align-items:center;gap:8px;border:1.5px solid var(--linha);border-radius:999px;padding:6px 6px 6px 12px;background:var(--cartao)}
 .chip b{font-variant-numeric:tabular-nums}
-.chip button{min-height:34px;min-width:34px;padding:0;border-radius:999px;background:transparent;color:var(--fraca);border:1px solid var(--linha)}
+.chip button{min-height:44px;min-width:44px;padding:0;border-radius:999px;background:transparent;color:var(--fraca);border:1px solid var(--borda)}
 .sug{list-style:none;margin:6px 0 0;padding:0;border:1px solid var(--linha);border-radius:10px;overflow:hidden}
 .sug:empty{display:none}
 .sug li button{width:100%;text-align:left;border:0;border-top:1px solid var(--linha);border-radius:0;background:var(--cartao);color:var(--tinta);font-weight:400;display:flex;justify-content:space-between;gap:8px}
@@ -86,6 +86,7 @@ footer p{max-width:64ch}
 .step{position:relative;padding-left:40px;margin:0 0 4px}
 .step::before{counter-increment:s;content:counter(s);position:absolute;left:0;top:14px;width:28px;height:28px;border-radius:50%;background:var(--acento);color:#fff;font-weight:800;display:grid;place-items:center;font-size:14px}
 @media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .step::before{color:#06201D}}
+:root[data-theme="dark"] .step::before{color:#06201D}
 .hide{display:none!important}
 @media print{header,footer .nao-imprime,.btns,.sug{display:none!important}body{background:#fff;color:#000}.card,.res{break-inside:avoid}}
 @media (max-width:380px){.row{grid-template-columns:1fr 1fr}}
@@ -102,13 +103,13 @@ footer p{max-width:64ch}
 <span id="m01-a06" class="anc"></span>
 
 <div class="card">
-<div class="q"><p class="t">1. Alerta</p><p class="h">Observe a pessoa. Se dormindo, tente despertar com voz ou toque leve. Peça que diga o nome e o endereço.</p>
-<div class="opts"><label class="op"><input type="radio" name="a1" value="0"><span>Normal<small>totalmente alerta, sem agitação</small></span><span class="pts">0 pt</span></label><label class="op"><input type="radio" name="a1" value="0"><span>Sonolência leve<small>menos de 10 s após despertar, depois normal</small></span><span class="pts">0 pt</span></label><label class="op"><input type="radio" name="a1" value="4"><span>Claramente anormal</span><span class="pts">4 pt</span></label></div></div>
-<div class="q"><p class="t">2. AMT4</p><p class="h">Idade, data de nascimento, local (hospital ou prédio), ano atual.</p>
+<div class="q" role="radiogroup" aria-labelledby="q1"><p class="t" id="q1">1. Alerta</p><p class="h">Inclui quem está muito sonolento (difícil de despertar ou claramente sonolento na avaliação) ou agitado/hiperativo. Observe a pessoa. Se dormindo, tente despertar com voz ou toque leve no ombro. Peça que diga o nome e o endereço para ajudar a pontuar.</p>
+<div class="opts"><label class="op"><input type="radio" name="a1" value="0"><span>Normal<small>totalmente alerta, sem agitação, durante toda a avaliação</small></span><span class="pts">0 pt</span></label><label class="op"><input type="radio" name="a1" value="0"><span>Sonolência leve<small>menos de 10 s após despertar, depois normal</small></span><span class="pts">0 pt</span></label><label class="op"><input type="radio" name="a1" value="4"><span>Claramente anormal</span><span class="pts">4 pt</span></label></div></div>
+<div class="q" role="radiogroup" aria-labelledby="q2"><p class="t" id="q2">2. AMT4</p><p class="h">Idade, data de nascimento, local (nome do hospital ou do prédio), ano atual.</p>
 <div class="opts"><label class="op"><input type="radio" name="a2" value="0"><span>Nenhum erro</span><span class="pts">0 pt</span></label><label class="op"><input type="radio" name="a2" value="1"><span>1 erro</span><span class="pts">1 pt</span></label><label class="op"><input type="radio" name="a2" value="2"><span>2 ou mais erros, ou não testável</span><span class="pts">2 pt</span></label></div></div>
-<div class="q"><p class="t">3. Atenção</p><p class="h">“Diga os meses do ano de trás para frente, começando em dezembro.” Pode ajudar uma vez: “qual o mês antes de dezembro?”</p>
+<div class="q" role="radiogroup" aria-labelledby="q3"><p class="t" id="q3">3. Atenção</p><p class="h">“Diga os meses do ano de trás para frente, começando em dezembro.” Pode ajudar uma vez: “qual o mês antes de dezembro?”</p>
 <div class="opts"><label class="op"><input type="radio" name="a3" value="0"><span>7 meses ou mais corretos</span><span class="pts">0 pt</span></label><label class="op"><input type="radio" name="a3" value="1"><span>Começa, mas acerta menos de 7, ou se recusa</span><span class="pts">1 pt</span></label><label class="op"><input type="radio" name="a3" value="2"><span>Não testável<small>não consegue começar por mal-estar, sonolência ou desatenção</small></span><span class="pts">2 pt</span></label></div></div>
-<div class="q"><p class="t">4. Mudança aguda ou curso flutuante</p><p class="h">Alteração significativa ou flutuação em alerta, cognição ou outra função mental nas últimas 2 semanas, ainda presente nas últimas 24 h.</p>
+<div class="q" role="radiogroup" aria-labelledby="q4"><p class="t" id="q4">4. Mudança aguda ou curso flutuante</p><p class="h">Evidência de alteração significativa ou flutuação em alerta, cognição ou outra função mental (p. ex., paranoia, alucinações) surgida nas últimas 2 semanas e ainda presente nas últimas 24 h. Use prontuário, equipe e familiar ou cuidador como fonte.</p>
 <div class="opts"><label class="op"><input type="radio" name="a4" value="0"><span>Não</span><span class="pts">0 pt</span></label><label class="op"><input type="radio" name="a4" value="4"><span>Sim</span><span class="pts">4 pt</span></label></div></div>
 </div>
 <div id="res" class="res" aria-live="polite" data-n="">
@@ -131,7 +132,7 @@ footer p{max-width:64ch}
 </div>
 
 <h2 id="internacao-segura" class="anc">Prevenção (HELP) e internação sem iatrogenia</h2>
-<p id="cirurgia" class="anc">Medidas multicomponentes não farmacológicas reduzem a incidência de delirium em cerca de 40% e também quedas. Use como checklist diário, inclusive no perioperatório.</p>
+<p id="cirurgia" class="anc">Medidas multicomponentes não farmacológicas reduzem a incidência de delirium (razão de chances de 0,60 no ensaio original e de 0,47 na metanálise de 2015) e também as quedas. Use como checklist diário, inclusive no perioperatório.</p>
 <div class="card opts">
 <label class="op"><input type="checkbox"><span>Orientação: relógio, calendário, nome da equipe, conversa sobre o dia</span></label>
 <label class="op"><input type="checkbox"><span>Óculos e aparelho auditivo em uso</span></label>
@@ -145,7 +146,8 @@ footer p{max-width:64ch}
 </div>
 
 <h2 id="fontes">Fontes</h2>
-<ol class="ref"><li>Bellelli G, Morandi A, Davis DHJ, et al. Validation of the 4AT, a new instrument for rapid delirium screening: a study in 234 hospitalised older people. <i>Age Ageing</i>. 2014;43(4):496-502.</li><li>Tieges Z, Maclullich AMJ, Anand A, et al. Diagnostic accuracy of the 4AT for delirium detection in older adults: systematic review and meta-analysis. <i>Age Ageing</i>. 2021;50(3):733-43.</li><li>4AT — instrumento de livre uso; versão oficial e instruções em <a href="https://www.the4at.com" rel="noopener">the4at.com</a>. Texto desta página: tradução livre para fins educacionais.</li><li>Inouye SK, Bogardus ST Jr, Charpentier PA, et al. A multicomponent intervention to prevent delirium in hospitalized older patients. <i>N Engl J Med</i>. 1999;340(9):669-76.</li><li>Hshieh TT, Yue J, Oh E, et al. Effectiveness of multicomponent nonpharmacological delirium interventions: a meta-analysis. <i>JAMA Intern Med</i>. 2015;175(4):512-20.</li><li>National Institute for Health and Care Excellence. Delirium: prevention, diagnosis and management in hospital and long-term care (CG103). Atualização 2023.</li></ol>
+<ol class="ref"><li>Bellelli G, Morandi A, Davis DHJ, et al. Validation of the 4AT, a new instrument for rapid delirium screening: a study in 234 hospitalised older people. <i>Age Ageing</i>. 2014;43(4):496-502. PMID 24590568. <a href="https://doi.org/10.1093/ageing/afu021" rel="noopener">doi:10.1093/ageing/afu021</a>.</li><li>Tieges Z, Maclullich AMJ, Anand A, et al. Diagnostic accuracy of the 4AT for delirium detection in older adults: systematic review and meta-analysis. <i>Age Ageing</i>. 2021;50(3):733-43. PMID 33951145. <a href="https://doi.org/10.1093/ageing/afaa224" rel="noopener">doi:10.1093/ageing/afaa224</a>.</li><li>Adaptado do 4AT © 2011–2014 Alasdair MacLullich, Tracy Ryan e Helen Cash (versão 1.2). Licença CC BY 4.0: <a href="https://creativecommons.org/licenses/by/4.0/" rel="noopener">creativecommons.org/licenses/by/4.0</a>. Versão oficial e atual: <a href="https://www.the4at.com/" rel="noopener">the4at.com</a>; versão oficial em português: <a href="https://www.the4at.com/4at-portugues" rel="noopener">the4at.com/4at-portugues</a>. <b>Esta versão foi modificada.</b> Mudanças: tradução livre para o português do Brasil feita para esta página, instruções resumidas e apresentação em formulário interativo; itens, pontuação e pontos de corte mantidos. A evidência de validação publicada para o 4AT oficial não deve ser presumida para esta versão modificada. Não há garantia de exatidão ou adequação a qualquer finalidade.</li><li>Inouye SK, Bogardus ST Jr, Charpentier PA, et al. A multicomponent intervention to prevent delirium in hospitalized older patients. <i>N Engl J Med</i>. 1999;340(9):669-76. PMID 10053175. <a href="https://doi.org/10.1056/NEJM199903043400901" rel="noopener">doi:10.1056/NEJM199903043400901</a>.</li><li>Hshieh TT, Yue J, Oh E, et al. Effectiveness of multicomponent nonpharmacological delirium interventions: a meta-analysis. <i>JAMA Intern Med</i>. 2015;175(4):512-20. PMID 25643002. <a href="https://doi.org/10.1001/jamainternmed.2014.7779" rel="noopener">doi:10.1001/jamainternmed.2014.7779</a>.</li><li>National Institute for Health and Care Excellence. Delirium: prevention, diagnosis and management in hospital and long-term care (CG103). Atualização 2023.</li></ol>
+<p><b>Instrumento de apoio à decisão. Não substitui o julgamento clínico.</b></p>
 <p style="font-size:14.5px;color:var(--fraca)">Atualizações de alto impacto sobre o tema: <a href="../../atualizacoes/delirium/">delirium</a> · <a href="../../atualizacoes/fragilidade-sarcopenia/">fragilidade sarcopenia</a> · <a href="../../atualizacoes/iatrogenia/">iatrogenia</a>.</p>
 </div></main>
 <footer><div class="wrap gut">
@@ -159,10 +161,10 @@ function copiar(id){const t=document.getElementById(id).innerText;navigator.clip
 
 const $=s=>document.querySelector(s);
 function calc(){const v=[1,2,3,4].map(i=>{const e=document.querySelector('input[name=a'+i+']:checked');return e?+e.value:null});
-const R=$('#res');if(v.includes(null)){R.dataset.n='';$('#tot').textContent='4AT —';$('#rot').textContent='Faltam '+v.filter(x=>x===null).length+' item(ns).';$('#det').innerHTML='';$('#resumo').textContent='';return}
+const R=$('#res');if(v.includes(null)){R.dataset.n='';$('#tot').textContent='4AT —';const f=v.filter(x=>x===null).length;$('#rot').textContent=f===4?'Responda aos 4 itens.':(f===1?'Falta 1 item.':'Faltam '+f+' itens.');$('#det').innerHTML='';$('#resumo').textContent='';return}
 const t=v.reduce((a,b)=>a+b,0);let rot,n,d;
-if(t>=4){rot='Possível delirium, com ou sem comprometimento cognitivo.';n='alto';d=['Confirmar o diagnóstico clinicamente (DSM-5-TR).','Investigar causas (lista abaixo) e iniciar medidas não farmacológicas.','Antipsicótico só para sofrimento intenso ou risco, na menor dose e pelo menor tempo.']}
-else if(t>=1){rot='Possível comprometimento cognitivo.';n='medio';d=['Avaliação cognitiva mais detalhada quando estável.','Delirium ainda é possível se a história do item 4 estiver incompleta: reavalie.']}
+if(t>=4){rot='Possível delirium, com ou sem comprometimento cognitivo.';n='alto';d=['O 4AT é rastreio, não diagnóstico: confirmar clinicamente (DSM-5-TR).','Investigar causas (lista abaixo) e iniciar medidas não farmacológicas.','Antipsicótico só para sofrimento intenso ou risco, na menor dose e pelo menor tempo.']}
+else if(t>=1){rot='Possível comprometimento cognitivo.';n='medio';d=['Recomenda-se avaliação cognitiva mais detalhada e/ou história com informante.','Delirium ainda é possível se a informação do item 4 estiver incompleta: reavalie.']}
 else{rot='Delirium ou comprometimento cognitivo grave improváveis.';n='ok';d=['Delirium ainda é possível se a informação do item 4 estiver incompleta.','Repetir se houver mudança do quadro.']}
 R.dataset.n=n;$('#tot').textContent='4AT '+t;$('#rot').textContent=rot;$('#det').innerHTML='<ul>'+d.map(x=>'<li>'+x+'</li>').join('')+'</ul>';
 $('#resumo').textContent='4AT = '+t+' (alerta '+v[0]+', AMT4 '+v[1]+', atenção '+v[2]+', mudança aguda/flutuação '+v[3]+'). '+rot;}

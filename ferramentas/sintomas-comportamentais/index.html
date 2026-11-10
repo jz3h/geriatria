@@ -8,11 +8,11 @@
 <meta name="robots" content="index,follow">
 <style>
 :root{--papel:#F7F5F0;--cartao:#FFFFFF;--tinta:#10233F;--fraca:#55657E;--linha:#E2DDD3;--acento:#0F766E;--acento-2:#0B5C56;--acento-soft:#E3F2EF;
---ok:#166534;--ok-soft:#E5F4EA;--medio:#9A5B00;--medio-soft:#FDF0D9;--alto:#B42318;--alto-soft:#FDE7E5;--foco:#F2B705;color-scheme:light}
+--ok:#166534;--ok-soft:#E5F4EA;--medio:#9A5B00;--medio-soft:#FDF0D9;--alto:#B42318;--alto-soft:#FDE7E5;--foco:#8A5200;--borda:#7B869A;color-scheme:light}
 @media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--papel:#0D1522;--cartao:#152034;--tinta:#E9EEF6;--fraca:#A0AFC6;--linha:#26344C;--acento:#38BDB0;--acento-2:#5FD3C7;--acento-soft:#123532;
---ok:#6EE7A0;--ok-soft:#123323;--medio:#F5B94D;--medio-soft:#3A2A0F;--alto:#FF8A80;--alto-soft:#3D1715;color-scheme:dark}}
+--ok:#6EE7A0;--ok-soft:#123323;--medio:#F5B94D;--medio-soft:#3A2A0F;--alto:#FF8A80;--alto-soft:#3D1715;--foco:#F2B705;--borda:#7486A3;color-scheme:dark}}
 :root[data-theme="dark"]{--papel:#0D1522;--cartao:#152034;--tinta:#E9EEF6;--fraca:#A0AFC6;--linha:#26344C;--acento:#38BDB0;--acento-2:#5FD3C7;--acento-soft:#123532;
---ok:#6EE7A0;--ok-soft:#123323;--medio:#F5B94D;--medio-soft:#3A2A0F;--alto:#FF8A80;--alto-soft:#3D1715;color-scheme:dark}
+--ok:#6EE7A0;--ok-soft:#123323;--medio:#F5B94D;--medio-soft:#3A2A0F;--alto:#FF8A80;--alto-soft:#3D1715;--foco:#F2B705;--borda:#7486A3;color-scheme:dark}
 *{box-sizing:border-box}html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
 body{margin:0;background:var(--papel);color:var(--tinta);font:17px/1.55 "Atkinson Hyperlegible","Segoe UI",system-ui,-apple-system,Roboto,sans-serif;overflow-x:hidden}
 .gut{padding-inline:max(16px,env(safe-area-inset-left,0px))}
@@ -35,7 +35,7 @@ a{color:var(--acento-2);text-underline-offset:3px}
 .q>p.t{font-weight:700;margin:0 0 8px}
 .q>p.h{color:var(--fraca);font-size:14.5px;margin:-4px 0 8px}
 .opts{display:grid;gap:8px}
-label.op{display:flex;gap:10px;align-items:flex-start;min-height:48px;padding:11px 12px;border:1.5px solid var(--linha);border-radius:11px;cursor:pointer;background:var(--cartao)}
+label.op{display:flex;gap:10px;align-items:flex-start;min-height:48px;padding:11px 12px;border:1.5px solid var(--borda);border-radius:11px;cursor:pointer;background:var(--cartao)}
 label.op:has(input:checked){border-color:var(--acento);background:var(--acento-soft)}
 label.op input{margin:3px 0 0;width:20px;height:20px;accent-color:var(--acento);flex:none}
 label.op span small{display:block;color:var(--fraca);font-size:14px}
@@ -43,8 +43,8 @@ label.op span small{display:block;color:var(--fraca);font-size:14px}
 .row{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px}
 .row2{display:grid;grid-template-columns:1fr 1fr;gap:10px}
 .fld label{display:block;font-size:13.5px;color:var(--fraca);margin-bottom:4px}
-input[type=number],input[type=search],select{width:100%;min-height:48px;font:inherit;color:var(--tinta);background:var(--cartao);border:1.5px solid var(--linha);border-radius:10px;padding:10px 12px}
-input:focus-visible,select:focus-visible,button:focus-visible,label.op:focus-within{outline:3px solid var(--foco);outline-offset:2px}
+input[type=number],input[type=search],select{width:100%;min-height:48px;font:inherit;color:var(--tinta);background:var(--cartao);border:1.5px solid var(--borda);border-radius:10px;padding:10px 12px}
+input:focus-visible,select:focus-visible,button:focus-visible,a:focus-visible,summary:focus-visible,label.op:focus-within{outline:3px solid var(--foco);outline-offset:2px}
 button{font:inherit;font-weight:700;min-height:48px;border-radius:11px;border:1.5px solid var(--acento);background:var(--acento);color:#fff;padding:10px 16px;cursor:pointer}
 @media (prefers-color-scheme:dark){:root:not([data-theme="light"]) button{color:#06201D}}
 :root[data-theme="dark"] button{color:#06201D}
@@ -62,7 +62,7 @@ button.sec{background:transparent;color:var(--acento-2)}
 .chips{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0 0;padding:0;list-style:none}
 .chip{display:flex;align-items:center;gap:8px;border:1.5px solid var(--linha);border-radius:999px;padding:6px 6px 6px 12px;background:var(--cartao)}
 .chip b{font-variant-numeric:tabular-nums}
-.chip button{min-height:34px;min-width:34px;padding:0;border-radius:999px;background:transparent;color:var(--fraca);border:1px solid var(--linha)}
+.chip button{min-height:44px;min-width:44px;padding:0;border-radius:999px;background:transparent;color:var(--fraca);border:1px solid var(--borda)}
 .sug{list-style:none;margin:6px 0 0;padding:0;border:1px solid var(--linha);border-radius:10px;overflow:hidden}
 .sug:empty{display:none}
 .sug li button{width:100%;text-align:left;border:0;border-top:1px solid var(--linha);border-radius:0;background:var(--cartao);color:var(--tinta);font-weight:400;display:flex;justify-content:space-between;gap:8px}
@@ -86,6 +86,7 @@ footer p{max-width:64ch}
 .step{position:relative;padding-left:40px;margin:0 0 4px}
 .step::before{counter-increment:s;content:counter(s);position:absolute;left:0;top:14px;width:28px;height:28px;border-radius:50%;background:var(--acento);color:#fff;font-weight:800;display:grid;place-items:center;font-size:14px}
 @media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .step::before{color:#06201D}}
+:root[data-theme="dark"] .step::before{color:#06201D}
 .hide{display:none!important}
 @media print{header,footer .nao-imprime,.btns,.sug{display:none!important}body{background:#fff;color:#000}.card,.res{break-inside:avoid}}
 @media (max-width:380px){.row{grid-template-columns:1fr 1fr}}
@@ -101,7 +102,7 @@ footer p{max-width:64ch}
 <main><div class="wrap gut">
 <span id="m03-a15" class="anc"></span>
 <style>
-textarea{width:100%;min-height:84px;font:inherit;color:var(--tinta);background:var(--cartao);border:1.5px solid var(--linha);border-radius:10px;padding:10px 12px;resize:vertical}
+textarea{width:100%;min-height:84px;font:inherit;color:var(--tinta);background:var(--cartao);border:1.5px solid var(--borda);border-radius:10px;padding:10px 12px;resize:vertical}
 textarea:focus-visible{outline:3px solid var(--foco);outline-offset:2px}
 .sub{color:var(--fraca);font-size:14.5px;margin:-2px 0 8px}
 .pill{display:inline-block;font-size:12.5px;font-weight:700;border-radius:999px;padding:2px 10px;border:1px solid currentColor;margin-right:6px}
@@ -116,7 +117,7 @@ textarea:focus-visible{outline:3px solid var(--foco);outline-offset:2px}
 .fonte-i{font-size:13.5px;color:var(--fraca)}
 table.t2 td:first-child{font-weight:700}
 </style>
-<ul class="nav" aria-label="Atalhos"><li><a href="#passo-d">D</a></li><li><a href="#passo-i">I</a></li><li><a href="#passo-c">C</a></li><li><a href="#passo-e">E</a></li></ul>
+<ul class="nav" aria-label="Atalhos"><li><a href="#passo-d" aria-label="Descrever">D</a></li><li><a href="#passo-i" aria-label="Investigar">I</a></li><li><a href="#passo-c" aria-label="Criar">C</a></li><li><a href="#passo-e" aria-label="Avaliar">E</a></li></ul>
 
 <ol class="steps">
 <li class="step"><div class="card" id="passo-d">
@@ -143,7 +144,7 @@ table.t2 td:first-child{font-weight:700}
 <div class="opts"><label class="op "><input type="checkbox" id="d_educ" name="dom" value="educ"><span><b>Educação do cuidador</b><small>explicar que o comportamento é sintoma da doença e não escolha; ensinar a identificar gatilhos e a buscar soluções junto com a equipe</small></span></label><label class="op "><input type="checkbox" id="d_comu5" name="dom" value="comu5"><span><b>Comunicação</b><small>frases curtas e simples, uma instrução por vez, tom calmo, dar tempo para responder</small></span></label><label class="op "><input type="checkbox" id="d_ativ" name="dom" value="ativ"><span><b>Atividades significativas</b><small>atividades ajustadas ao que a pessoa gosta e ainda consegue fazer (música, movimento, tarefas da casa)</small></span></label><label class="op "><input type="checkbox" id="d_rot5" name="dom" value="rot5"><span><b>Tarefas simples e rotina estruturada</b><small>dividir as tarefas em etapas, horários previsíveis para banho, refeições e sono</small></span></label><label class="op "><input type="checkbox" id="d_segu" name="dom" value="segu"><span><b>Segurança e ambiente</b><small>retirar excesso de objetos, sinalizar portas e banheiro, reduzir ruído e luz inadequada</small></span></label></div>
 <h3>3. Há exceção para psicofármaco?</h3>
 <p class="sub">O plano padrão é tentar antes medidas clínicas, comportamentais e ambientais. Há três exceções, por risco sério e imediato.</p>
-<div class="opts">
+<div class="opts" role="radiogroup" aria-label="Exceção para psicofármaco">
 <label class="op"><input type="radio" name="exc" value="nenhuma" checked><span>Nenhuma das três<small>padrão: sem psicofármaco por ora</small></span></label>
 <label class="op"><input type="radio" name="exc" value="depr"><span>Depressão maior, com ou sem ideação suicida<small>classe a considerar: antidepressivo</small></span></label>
 <label class="op"><input type="radio" name="exc" value="psic"><span>Psicose que causa dano ou tem grande potencial de dano<small>classe a considerar: antipsicótico</small></span></label>
@@ -185,7 +186,7 @@ table.t2 td:first-child{font-weight:700}
 <li>Convencionais: ainda efeitos anticolinérgicos, hipotensão postural, QT prolongado e discinesia tardia.</li>
 <li>Demência com corpos de Lewy: risco maior de eventos adversos graves; use cautela extra ou evite (consenso do DLB Consortium, 2017).</li>
 </ul>
-<p><b>Se usar:</b> uso fora da bula, tempo limitado, seguimento próximo, avaliação dos riscos e benefícios com a família e reavaliação regular, com tentativa de redução ou suspensão.</p>
+<p><b>Se usar:</b> uso fora da bula nos Estados Unidos, país do artigo-fonte (no Brasil, confira a bula vigente de cada fármaco), tempo limitado, seguimento próximo, avaliação dos riscos e benefícios com a família e reavaliação regular, com tentativa de redução ou suspensão.</p>
 <p><b>Pouco prováveis de melhorar com psicofármaco:</b> problemas de memória, desatenção ou desinteresse, perguntas repetidas, recusa de cuidados, seguir o cuidador, vagueação e comportamentos perigosos ou inadequados (por exemplo despir-se em público). Aqui o caminho é o passo C do plano.</p>
 </div>
 
@@ -199,7 +200,8 @@ table.t2 td:first-child{font-weight:700}
 </div>
 
 <h2 id="fontes">Fontes</h2>
-<ol class="ref"><li>Kales HC, Gitlin LN, Lyketsos CG. Assessment and management of behavioral and psychological symptoms of dementia. <i>BMJ</i>. 2015;350:h369. <a href="https://doi.org/10.1136/bmj.h369" rel="noopener">doi:10.1136/bmj.h369</a>. PMID 25731881.</li><li>McKeith IG, Boeve BF, Dickson DW, et al. Diagnosis and management of dementia with Lewy bodies: fourth consensus report of the DLB Consortium. <i>Neurology</i>. 2017;89(1):88-100. <a href="https://doi.org/10.1212/WNL.0000000000004058" rel="noopener">doi:10.1212/WNL.0000000000004058</a>.</li><li>Rascovsky K, Hodges JR, Knopman D, et al. Sensitivity of revised diagnostic criteria for the behavioural variant of frontotemporal dementia. <i>Brain</i>. 2011;134(9):2456-77. <a href="https://doi.org/10.1093/brain/awr179" rel="noopener">doi:10.1093/brain/awr179</a>.</li></ol>
+<ol class="ref"><li>Kales HC, Gitlin LN, Lyketsos CG. Assessment and management of behavioral and psychological symptoms of dementia. <i>BMJ</i>. 2015;350:h369. <a href="https://doi.org/10.1136/bmj.h369" rel="noopener">doi:10.1136/bmj.h369</a>. PMID 25731881.</li><li>McKeith IG, Boeve BF, Dickson DW, et al. Diagnosis and management of dementia with Lewy bodies: fourth consensus report of the DLB Consortium. <i>Neurology</i>. 2017;89(1):88-100. PMID 28592453. <a href="https://doi.org/10.1212/WNL.0000000000004058" rel="noopener">doi:10.1212/WNL.0000000000004058</a>.</li><li>Rascovsky K, Hodges JR, Knopman D, et al. Sensitivity of revised diagnostic criteria for the behavioural variant of frontotemporal dementia. <i>Brain</i>. 2011;134(9):2456-77. PMID 21810890. <a href="https://doi.org/10.1093/brain/awr179" rel="noopener">doi:10.1093/brain/awr179</a>.</li></ol>
+<p><b>Instrumento de apoio à decisão. Não substitui o julgamento clínico.</b></p>
 <p style="font-size:14.5px;color:var(--fraca)">Atualizações de alto impacto sobre o tema: <a href="../../atualizacoes/alzheimer/">alzheimer</a> · <a href="../../atualizacoes/cognicao-demencias/">cognicao demencias</a> · <a href="../../atualizacoes/psicose/">psicose</a>.</p>
 </div></main>
 <footer><div class="wrap gut">
@@ -250,7 +252,7 @@ function calc(){
  else{ei.innerHTML='<div class="aviso">'+EXC[exc]+'</div>'}
  let t='Abordagem DICE para sintomas comportamentais e psicológicos da demência.\n';
  t+='D. '+(alvo?('Comportamento-alvo: '+ALVO[alvo]+'. '):'')+(desc?('Descrição: '+desc+'. '):'')+(meta?('Meta: '+meta+'. '):'')+'\n';
- const lab=k=>document.querySelector('label:has(#i_'+k+') span').childNodes[0].textContent.trim();
+ const lab=k=>document.getElementById('i_'+k).closest('label').querySelector('span').childNodes[0].textContent.trim();
  t+='I. '+(inv.length?('Possíveis contribuintes identificados: '+inv.map(lab).join('; ')):'Nenhum contribuinte marcado até o momento')+'.\n';
  t+='C. '+(inv.length?('Plano clínico: '+inv.map(k=>PLANO[k]).join(' ')+' '):'')+(dom.length?('Estratégias não farmacológicas: '+dom.map(k=>DOM[k]).join(', ')+'. '):'')+(exc==='nenhuma'?'Sem psicofármaco por ora.':EXC[exc])+'\n';
  t+='E. Reavaliar em intervalos regulares (sugestão do consenso citado: a cada 3 meses), checando adesão às estratégias, sintoma-alvo, sofrimento do cuidador e efeitos indesejados; se houver psicofármaco, tentar redução ou suspensão.';

@@ -23,34 +23,34 @@
     <div class="grade">
       <div class="campo">
         <label for="cr">Creatinina sérica</label>
-        <p class="hint">em mg/dL</p>
-        <input type="number" id="cr" step="0.01" min="0.1" max="20" inputmode="decimal" placeholder="1,10">
+        <p class="hint" id="crh">em mg/dL (de 0,1 a 20). Se o laudo vier em µmol/L, divida por 88,4.</p>
+        <input type="number" id="cr" step="0.01" min="0.1" max="20" inputmode="decimal" placeholder="1,10" aria-describedby="crh">
       </div>
       <div class="campo">
         <label for="idade">Idade</label>
-        <p class="hint">em anos</p>
-        <input type="number" id="idade" step="1" min="18" max="120" inputmode="numeric" placeholder="78">
+        <p class="hint" id="idh">em anos (18 ou mais)</p>
+        <input type="number" id="idade" step="1" min="18" max="120" inputmode="numeric" placeholder="78" aria-describedby="idh">
       </div>
     </div>
-    <div class="campo">
-      <label>Sexo</label>
-      <p class="hint">A equação usa dois coeficientes diferentes.</p>
+    <fieldset class="campo">
+      <legend>Sexo</legend>
+      <p class="hint">A equação usa coeficientes diferentes para cada sexo.</p>
       <div class="radios">
         <label><input type="radio" name="sexo" value="f"> Feminino</label>
         <label><input type="radio" name="sexo" value="m"> Masculino</label>
       </div>
-    </div>
+    </fieldset>
   </div>
 
   <div class="card">
     <h2>Resultado</h2>
-    <div class="res" id="res"><span class="vazio">Preencha a creatinina, a idade e o sexo.</span></div>
+    <div class="res" id="res" aria-live="polite"><span class="vazio">Preencha a creatinina, a idade e o sexo.</span></div>
     <p class="nota" id="aviso"></p>
   </div>
 
   <div class="card">
     <h2>Estadiamento KDIGO</h2>
-    <table>
+    <div class="tblwrap"><table>
       <thead><tr><th>Categoria</th><th>TFG estimada</th><th>Descrição</th></tr></thead>
       <tbody>
         <tr data-g="G1"><td>G1</td><td>&ge; 90</td><td>Normal ou alta</td></tr>
@@ -60,7 +60,7 @@
         <tr data-g="G4"><td>G4</td><td>15 – 29</td><td>Gravemente reduzida</td></tr>
         <tr data-g="G5"><td>G5</td><td>&lt; 15</td><td>Falência renal</td></tr>
       </tbody>
-    </table>
+    </table></div>
     <p class="nota">A categoria G sozinha não estadia a doença renal crônica: o estadiamento completo exige também a albuminúria (A1 a A3) e a persistência por mais de três meses.</p>
   </div>
 
@@ -72,7 +72,7 @@
 α = −0,241 (feminino)  −0,302 (masculino)
 
 Resultado em mL/min/1,73 m²</div>
-    <p class="nota">A fórmula está aqui à mostra de propósito: quem usa precisa poder ver o que a página fez com o número que digitou. Equação de Inker e colaboradores, <i>New England Journal of Medicine</i>, 2021 — a versão sem o coeficiente de raça, hoje recomendada.</p>
+    <p class="nota">A fórmula está aqui à mostra de propósito: quem usa precisa poder ver o que a página fez com o número que digitou. Equação de Inker e colaboradores, <i>New England Journal of Medicine</i>, 2021 — a versão sem o coeficiente de raça. Desenvolvida e validada em adultos (18 anos ou mais), com creatinina padronizada.</p>
   </div>
 
   <div class="card">
@@ -82,28 +82,44 @@ Resultado em mL/min/1,73 m²</div>
     <p class="nota"><b>Para ajustar dose de medicamento</b>, confira o que a bula e a referência de ajuste pedem: boa parte foi validada com a depuração de creatinina por Cockcroft-Gault, não com a TFG indexada por superfície corporal. Para fármacos de janela estreita, a diferença entre as duas muda a dose.</p>
   </div>
 
+  <div class="card" id="fonte">
+    <h2>Fonte</h2>
+    <p class="nota">Inker LA, Eneanya ND, Coresh J, et al. New creatinine- and cystatin C-based equations to estimate GFR without race. <i>N Engl J Med</i>. 2021;385(19):1737-49. PMID 34554658. <a href="https://doi.org/10.1056/NEJMoa2102953" rel="noopener">doi:10.1056/NEJMoa2102953</a>.</p>
+    <p class="nota">Kidney Disease: Improving Global Outcomes (KDIGO) CKD Work Group. KDIGO 2024 Clinical Practice Guideline for the Evaluation and Management of Chronic Kidney Disease. <i>Kidney Int</i>. 2024;105(4S):S117-S314. PMID 38490803. <a href="https://doi.org/10.1016/j.kint.2023.10.018" rel="noopener">doi:10.1016/j.kint.2023.10.018</a>.</p>
+    <p class="nota"><b>Instrumento de apoio à decisão. Não substitui o julgamento clínico.</b></p>
+  </div>
+
 </div></main>
 
 <footer><div class="wrap gut">
-  <p>Ferramenta de apoio ao raciocínio clínico. <b>Não substitui a avaliação clínica individual</b> e não emite diagnóstico. O cálculo acontece inteiramente no navegador: nenhum dado é enviado, transmitido ou armazenado.</p>
+  <p>Instrumento de apoio à decisão. <b>Não substitui o julgamento clínico</b> nem a avaliação clínica individual, e não emite diagnóstico. O cálculo acontece inteiramente no navegador: nenhum dado é enviado, transmitido ou armazenado.</p>
   <p>Dr. José Dias Linhares Júnior · CRM-RS 49835 · Medicina de Família e Comunidade, RQE 41886</p>
 </div></footer>
 
 <script>
 const cr=document.getElementById('cr'), idade=document.getElementById('idade'), res=document.getElementById('res'), aviso=document.getElementById('aviso');
 function cat(g){ if(g>=90)return['G1','Normal ou alta']; if(g>=60)return['G2','Levemente reduzida']; if(g>=45)return['G3a','Leve a moderadamente reduzida']; if(g>=30)return['G3b','Moderada a gravemente reduzida']; if(g>=15)return['G4','Gravemente reduzida']; return['G5','Falência renal']; }
-function calc(){
-  const sexoEl=document.querySelector('input[name=sexo]:checked');
-  const c=parseFloat(String(cr.value).replace(',','.')), a=parseFloat(idade.value);
-  document.querySelectorAll('tbody tr').forEach(t=>t.classList.remove('aqui'));
-  if(!sexoEl||!isFinite(c)||!isFinite(a)||c<=0||a<=0){
-    res.innerHTML='<span class="vazio">Preencha a creatinina, a idade e o sexo.</span>'; aviso.textContent=''; return;
-  }
-  const f = sexoEl.value==='f';
-  const k = f?0.7:0.9, alfa = f?-0.241:-0.302;
-  const r = c/k;
+function tfg(c,a,f){ // CKD-EPI 2021 (creatinina): c em mg/dL, a em anos, f = sexo feminino
+  const k = f?0.7:0.9, alfa = f?-0.241:-0.302, r = c/k;
   let g = 142 * Math.pow(Math.min(r,1),alfa) * Math.pow(Math.max(r,1),-1.200) * Math.pow(0.9938,a);
   if(f) g *= 1.012;
+  return g;
+}
+function calc(){
+  const sexoEl=document.querySelector('input[name=sexo]:checked');
+  const crTxt=String(cr.value).trim(), idTxt=String(idade.value).trim();
+  const c=parseFloat(crTxt.replace(',','.')), a=parseFloat(idTxt.replace(',','.'));
+  document.querySelectorAll('tbody tr').forEach(t=>t.classList.remove('aqui'));
+  aviso.textContent='';
+  const erros=[];
+  if(crTxt!==''&&(!isFinite(c)||c<0.1||c>20)) erros.push('Creatinina fora da faixa aceita (0,1 a 20 mg/dL). Confira a unidade: se o laudo está em µmol/L, divida por 88,4.');
+  if(idTxt!==''&&(!isFinite(a)||a<18||a>120)) erros.push('Idade fora da faixa aceita (18 a 120 anos). A equação é para adultos.');
+  if(erros.length){ res.innerHTML='<span class="erro">'+erros.join('<br>')+'</span>'; return; }
+  if(!sexoEl||crTxt===''||idTxt===''||!isFinite(c)||!isFinite(a)){
+    res.innerHTML='<span class="vazio">Preencha a creatinina, a idade e o sexo.</span>'; return;
+  }
+  const f = sexoEl.value==='f';
+  const g = tfg(c,a,f);
   const v = Math.round(g*10)/10;
   const [cg,desc] = cat(v);
   res.innerHTML='<div class="n">'+v.toFixed(1).replace('.',',')+' <span class="u">mL/min/1,73 m²</span></div>'+
@@ -112,7 +128,8 @@ function calc(){
   let av=[];
   if(a>=80) av.push('Acima de 80 anos a creatinina costuma subestimar a perda de função: se houver sarcopenia, a filtração real é menor que esta.');
   if(c<0.7) av.push('Creatinina abaixo de 0,7 mg/dL em pessoa idosa sugere pouca massa muscular, e nesse caso a estimativa fica otimista.');
-  if(v<30) av.push('Abaixo de 30 mL/min há fármaco a suspender e dose a rever: confira a lista de medicações em uso.');
+  if(v<30) av.push('Abaixo de 30 mL/min/1,73 m² há fármaco a suspender e dose a rever: confira a lista de medicações em uso.');
+  if(v>=60) av.push('Sem albuminúria ou outro marcador de lesão renal, as categorias G1 e G2 não definem doença renal crônica.');
   aviso.innerHTML = av.map(t=>'<b>·</b> '+t).join('<br>');
 }
 [cr,idade].forEach(e=>e.addEventListener('input',calc));

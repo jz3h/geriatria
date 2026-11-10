@@ -8,11 +8,11 @@
 <meta name="robots" content="index,follow">
 <style>
 :root{--papel:#F7F5F0;--cartao:#FFFFFF;--tinta:#10233F;--fraca:#55657E;--linha:#E2DDD3;--acento:#0F766E;--acento-2:#0B5C56;--acento-soft:#E3F2EF;
---ok:#166534;--ok-soft:#E5F4EA;--medio:#9A5B00;--medio-soft:#FDF0D9;--alto:#B42318;--alto-soft:#FDE7E5;--foco:#F2B705;color-scheme:light}
+--ok:#166534;--ok-soft:#E5F4EA;--medio:#9A5B00;--medio-soft:#FDF0D9;--alto:#B42318;--alto-soft:#FDE7E5;--foco:#8A5200;--borda:#7B869A;color-scheme:light}
 @media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--papel:#0D1522;--cartao:#152034;--tinta:#E9EEF6;--fraca:#A0AFC6;--linha:#26344C;--acento:#38BDB0;--acento-2:#5FD3C7;--acento-soft:#123532;
---ok:#6EE7A0;--ok-soft:#123323;--medio:#F5B94D;--medio-soft:#3A2A0F;--alto:#FF8A80;--alto-soft:#3D1715;color-scheme:dark}}
+--ok:#6EE7A0;--ok-soft:#123323;--medio:#F5B94D;--medio-soft:#3A2A0F;--alto:#FF8A80;--alto-soft:#3D1715;--foco:#F2B705;--borda:#7486A3;color-scheme:dark}}
 :root[data-theme="dark"]{--papel:#0D1522;--cartao:#152034;--tinta:#E9EEF6;--fraca:#A0AFC6;--linha:#26344C;--acento:#38BDB0;--acento-2:#5FD3C7;--acento-soft:#123532;
---ok:#6EE7A0;--ok-soft:#123323;--medio:#F5B94D;--medio-soft:#3A2A0F;--alto:#FF8A80;--alto-soft:#3D1715;color-scheme:dark}
+--ok:#6EE7A0;--ok-soft:#123323;--medio:#F5B94D;--medio-soft:#3A2A0F;--alto:#FF8A80;--alto-soft:#3D1715;--foco:#F2B705;--borda:#7486A3;color-scheme:dark}
 *{box-sizing:border-box}html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
 body{margin:0;background:var(--papel);color:var(--tinta);font:17px/1.55 "Atkinson Hyperlegible","Segoe UI",system-ui,-apple-system,Roboto,sans-serif;overflow-x:hidden}
 .gut{padding-inline:max(16px,env(safe-area-inset-left,0px))}
@@ -35,7 +35,7 @@ a{color:var(--acento-2);text-underline-offset:3px}
 .q>p.t{font-weight:700;margin:0 0 8px}
 .q>p.h{color:var(--fraca);font-size:14.5px;margin:-4px 0 8px}
 .opts{display:grid;gap:8px}
-label.op{display:flex;gap:10px;align-items:flex-start;min-height:48px;padding:11px 12px;border:1.5px solid var(--linha);border-radius:11px;cursor:pointer;background:var(--cartao)}
+label.op{display:flex;gap:10px;align-items:flex-start;min-height:48px;padding:11px 12px;border:1.5px solid var(--borda);border-radius:11px;cursor:pointer;background:var(--cartao)}
 label.op:has(input:checked){border-color:var(--acento);background:var(--acento-soft)}
 label.op input{margin:3px 0 0;width:20px;height:20px;accent-color:var(--acento);flex:none}
 label.op span small{display:block;color:var(--fraca);font-size:14px}
@@ -43,8 +43,8 @@ label.op span small{display:block;color:var(--fraca);font-size:14px}
 .row{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px}
 .row2{display:grid;grid-template-columns:1fr 1fr;gap:10px}
 .fld label{display:block;font-size:13.5px;color:var(--fraca);margin-bottom:4px}
-input[type=number],input[type=search],select{width:100%;min-height:48px;font:inherit;color:var(--tinta);background:var(--cartao);border:1.5px solid var(--linha);border-radius:10px;padding:10px 12px}
-input:focus-visible,select:focus-visible,button:focus-visible,label.op:focus-within{outline:3px solid var(--foco);outline-offset:2px}
+input[type=number],input[type=search],select{width:100%;min-height:48px;font:inherit;color:var(--tinta);background:var(--cartao);border:1.5px solid var(--borda);border-radius:10px;padding:10px 12px}
+input:focus-visible,select:focus-visible,button:focus-visible,a:focus-visible,summary:focus-visible,label.op:focus-within{outline:3px solid var(--foco);outline-offset:2px}
 button{font:inherit;font-weight:700;min-height:48px;border-radius:11px;border:1.5px solid var(--acento);background:var(--acento);color:#fff;padding:10px 16px;cursor:pointer}
 @media (prefers-color-scheme:dark){:root:not([data-theme="light"]) button{color:#06201D}}
 :root[data-theme="dark"] button{color:#06201D}
@@ -62,7 +62,7 @@ button.sec{background:transparent;color:var(--acento-2)}
 .chips{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0 0;padding:0;list-style:none}
 .chip{display:flex;align-items:center;gap:8px;border:1.5px solid var(--linha);border-radius:999px;padding:6px 6px 6px 12px;background:var(--cartao)}
 .chip b{font-variant-numeric:tabular-nums}
-.chip button{min-height:34px;min-width:34px;padding:0;border-radius:999px;background:transparent;color:var(--fraca);border:1px solid var(--linha)}
+.chip button{min-height:44px;min-width:44px;padding:0;border-radius:999px;background:transparent;color:var(--fraca);border:1px solid var(--borda)}
 .sug{list-style:none;margin:6px 0 0;padding:0;border:1px solid var(--linha);border-radius:10px;overflow:hidden}
 .sug:empty{display:none}
 .sug li button{width:100%;text-align:left;border:0;border-top:1px solid var(--linha);border-radius:0;background:var(--cartao);color:var(--tinta);font-weight:400;display:flex;justify-content:space-between;gap:8px}
@@ -86,6 +86,7 @@ footer p{max-width:64ch}
 .step{position:relative;padding-left:40px;margin:0 0 4px}
 .step::before{counter-increment:s;content:counter(s);position:absolute;left:0;top:14px;width:28px;height:28px;border-radius:50%;background:var(--acento);color:#fff;font-weight:800;display:grid;place-items:center;font-size:14px}
 @media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .step::before{color:#06201D}}
+:root[data-theme="dark"] .step::before{color:#06201D}
 .hide{display:none!important}
 @media print{header,footer .nao-imprime,.btns,.sug{display:none!important}body{background:#fff;color:#000}.card,.res{break-inside:avoid}}
 @media (max-width:380px){.row{grid-template-columns:1fr 1fr}}
@@ -103,21 +104,22 @@ footer p{max-width:64ch}
 
 <div class="card">
 <ol class="steps">
-<li class="step q"><p class="t">Três perguntas-chave</p><p class="h">Em consulta de rotina. Se a pessoa chegou <b>por causa de uma queda</b>, marque “caiu” e siga.</p>
+<li class="step q" role="group" aria-labelledby="p1"><p class="t" id="p1">Três perguntas-chave</p><p class="h">Em consulta de rotina. Se a pessoa chegou <b>por causa de uma queda</b>, marque “caiu” e siga. Se respondeu não às três, marque a última opção.</p>
 <div class="opts">
 <label class="op"><input type="checkbox" name="k" value="caiu"><span>Caiu nos últimos 12 meses<small>Quantas vezes? Com lesão?</small></span></label>
 <label class="op"><input type="checkbox" name="k" value="inst"><span>Sente-se instável ao ficar de pé ou andar</span></label>
 <label class="op"><input type="checkbox" name="k" value="medo"><span>Tem medo de cair</span></label>
+<label class="op"><input type="checkbox" name="k" value="nenhuma"><span>Respondeu não às três perguntas</span></label>
 </div></li>
-<li class="step q" id="passo2"><p class="t">Algum sinal de gravidade?</p><p class="h">Qualquer um = alto risco.</p>
+<li class="step q" id="passo2" role="group" aria-labelledby="p2"><p class="t" id="p2">Algum sinal de gravidade?</p><p class="h">Em quem caiu, qualquer um = alto risco.</p>
 <div class="opts">
 <label class="op"><input type="checkbox" name="g" value="lesao"><span>Lesão causada pela queda</span></label>
 <label class="op"><input type="checkbox" name="g" value="duas"><span>Duas ou mais quedas no último ano</span></label>
-<label class="op"><input type="checkbox" name="g" value="fragil"><span>Fragilidade<small>p. ex., Clinical Frailty Scale ≥ 4</small></span></label>
-<label class="op"><input type="checkbox" name="g" value="chao"><span>Ficou no chão sem conseguir levantar</span></label>
+<label class="op"><input type="checkbox" name="g" value="fragil"><span>Fragilidade<small>já conhecida ou por instrumento validado (p. ex., Clinical Frailty Scale ≥ 4 ou fenótipo de fragilidade ≥ 3 critérios)</small></span></label>
+<label class="op"><input type="checkbox" name="g" value="chao"><span>Ficou no chão sem conseguir levantar sem ajuda<small>por pelo menos 1 hora</small></span></label>
 <label class="op"><input type="checkbox" name="g" value="sincope"><span>Perda de consciência ou suspeita de síncope</span></label>
 </div></li>
-<li class="step q" id="equilibrio"><p class="t">Marcha e equilíbrio</p><p class="h">Preencha ao menos um. Sem teste, o algoritmo não fecha o risco intermediário.</p>
+<li class="step q" id="equilibrio"><p class="t">Marcha e equilíbrio</p><p class="h">Preencha ao menos um. Sem teste, o algoritmo não fecha o risco intermediário. A diretriz prefere a velocidade de marcha (alterada se &lt; 0,8 m/s); o TUG é alternativa (alterado se &gt; 15 s), com evidência menos consistente.</p>
 <div class="row2">
 <div class="fld"><label for="tug">TUG (segundos)</label><input id="tug" type="number" inputmode="decimal" min="0" max="300" step="0.1" placeholder="ex.: 12"></div>
 <div class="fld"><label for="vm">Velocidade de marcha (m/s)</label><input id="vm" type="number" inputmode="decimal" min="0" max="3" step="0.01" placeholder="ex.: 0,9"></div>
@@ -166,7 +168,8 @@ footer p{max-width:64ch}
 <div class="btns"><button type="button" class="sec" onclick="window.print()">Imprimir lista</button></div></div>
 
 <h2 id="fontes">Fontes</h2>
-<ol class="ref"><li>Montero-Odasso M, van der Velde N, Martin FC, et al. World guidelines for falls prevention and management for older adults: a global initiative. <i>Age Ageing</i>. 2022;51(9):afac205. PMID 36178003. <a href="https://doi.org/10.1093/ageing/afac205" rel="noopener">doi:10.1093/ageing/afac205</a>.</li><li>Seppala LJ, Petrovic M, Ryg J, et al. STOPPFall (Screening Tool of Older Persons Prescriptions in older adults with high fall risk): a Delphi study by the EuGMS Task and Finish Group on Fall-Risk-Increasing Drugs. <i>Age Ageing</i>. 2021;50(4):1189-99.</li><li>Centers for Disease Control and Prevention. STEADI — Check for Safety: a home fall prevention checklist for older adults.</li></ol>
+<ol class="ref"><li>Montero-Odasso M, van der Velde N, Martin FC, et al. World guidelines for falls prevention and management for older adults: a global initiative. <i>Age Ageing</i>. 2022;51(9):afac205. PMID 36178003. <a href="https://doi.org/10.1093/ageing/afac205" rel="noopener">doi:10.1093/ageing/afac205</a>.</li><li>Seppala LJ, Petrovic M, Ryg J, et al. STOPPFall (Screening Tool of Older Persons Prescriptions in older adults with high fall risk): a Delphi study by the EuGMS Task and Finish Group on Fall-Risk-Increasing Drugs. <i>Age Ageing</i>. 2021;50(4):1189-99. PMID 33349863. <a href="https://doi.org/10.1093/ageing/afaa249" rel="noopener">doi:10.1093/ageing/afaa249</a>.</li><li>Centers for Disease Control and Prevention. STEADI — Check for Safety: a home fall prevention checklist for older adults.</li></ol>
+<p><b>Instrumento de apoio à decisão. Não substitui o julgamento clínico.</b></p>
 <p style="font-size:14.5px;color:var(--fraca)">Atualizações de alto impacto sobre o tema: <a href="../../atualizacoes/quedas-mobilidade/">quedas mobilidade</a>.</p>
 </div></main>
 <footer><div class="wrap gut">
@@ -179,23 +182,37 @@ footer p{max-width:64ch}
 function copiar(id){const t=document.getElementById(id).innerText;navigator.clipboard&&navigator.clipboard.writeText(t).then(()=>{const b=document.querySelector('[data-copia="'+id+'"]');if(b){const o=b.textContent;b.textContent='Copiado';setTimeout(()=>b.textContent=o,1500)}}).catch(()=>{});}
 
 const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
-function num(id){const v=parseFloat(String($(id).value).replace(',','.'));return isFinite(v)&&v>0?v:null}
-function calc(){const k=$$('input[name=k]:checked').map(x=>x.value),g=$$('input[name=g]:checked').map(x=>x.value);
-let tug=num('#tug'),vm=num('#vm'),t4=num('#t4');if(!vm&&t4)vm=4/t4;
-const R=$('#res');let cat,rot,n,det=[],res;
-if(!k.length){cat='Baixo risco';n='ok';rot='Respostas negativas às três perguntas-chave.';
+const LIM={'#tug':[1,300,'TUG'],'#vm':[0.05,3,'Velocidade de marcha'],'#t4':[1,120,'Tempo para 4 metros']};
+function num(id,erros){const bruto=String($(id).value).trim();if(bruto==='')return null;const v=parseFloat(bruto.replace(',','.'));const L=LIM[id];
+if(!isFinite(v)||v<L[0]||v>L[1]){if(erros)erros.push(L[2]+': valor fora da faixa aceita ('+String(L[0]).replace('.',',')+' a '+L[1]+'); confira o número e a unidade.');return null}return v}
+function classifica(k,g,tug,vm){
+// k: respostas positivas às três perguntas (sem 'nenhuma'); nenhuma: marcou "não às três"; g: sinais de gravidade
+let cat,rot,n,det=[];
+if(g.length){cat='Alto risco';n='alto';rot='Queda com pelo menos um sinal de gravidade.';
+det=['Avaliação multifatorial (lista abaixo) seguida de intervenção individualizada e multidomínio.','Revisão de medicamentos que aumentam o risco de queda (STOPPFall).','Exercício de equilíbrio e força, progressivo, ≥ 3×/semana por ≥ 12 semanas.','Avaliar risco de fratura e osteoporose; ensinar a levantar do chão.','Seguimento em 30–90 dias.'];
+if(g.includes('sincope'))det.push('Suspeita de síncope: investigar e manejar como síncope.');}
+else if(!k.length){cat='Baixo risco';n='ok';rot='Respostas negativas às três perguntas-chave.';
 det=['Educação sobre prevenção de quedas.','Orientar atividade física regular, incluindo equilíbrio e força.','Reavaliar em 12 meses (ou antes, se cair).'];}
-else if(g.length){cat='Alto risco';n='alto';rot='Pelo menos um sinal de gravidade.';
-det=['Avaliação multifatorial (lista abaixo) seguida de intervenção individualizada e multidomínio.','Revisão de medicamentos que aumentam o risco de queda (STOPPFall).','Exercício de equilíbrio e força, progressivo, ≥ 3×/semana por ≥ 12 semanas.','Avaliar risco de fratura e osteoporose; ensinar a levantar do chão.','Seguimento em 30–90 dias.'];}
-else if(tug===null&&vm===null){cat='Aguardando teste';n='medio';rot='Sem sinal de gravidade: falta avaliar marcha/equilíbrio.';det=['Faça o TUG ou a velocidade de marcha de 4 m.'];}
+else if(tug===null&&vm===null){cat='Aguardando teste';n='medio';rot='Sem sinal de gravidade: falta avaliar marcha/equilíbrio.';det=['Faça a velocidade de marcha de 4 m ou o TUG.'];}
 else{const alt=(tug!==null&&tug>15)||(vm!==null&&vm<0.8);
-if(alt){cat='Risco intermediário';n='medio';rot='Marcha/equilíbrio alterados sem sinais de gravidade.';det=['Exercício direcionado a equilíbrio e força (ex.: Otago, tai chi), ≥ 3×/semana, progressivo.','Educação sobre quedas.','Reavaliar em 12 meses.'];}
+if(alt){cat='Risco intermediário';n='medio';rot='Marcha/equilíbrio alterados sem sinais de gravidade.';det=['Exercício direcionado a equilíbrio e força (ex.: Otago, tai chi), ≥ 3×/semana, progressivo; considerar encaminhar à fisioterapia.','Educação sobre quedas.','Reavaliar em 12 meses.'];}
 else{cat='Baixo risco';n='ok';rot='Marcha e equilíbrio dentro dos limites.';det=['Educação sobre quedas e atividade física.','Reavaliar em 12 meses.'];}
 if(vm!==null)det.push('Velocidade de marcha: '+vm.toFixed(2).replace('.',',')+' m/s ('+(vm<0.8?'< 0,8':'≥ 0,8')+').');
-if(tug!==null)det.push('TUG: '+String(tug).replace('.',',')+' s ('+(tug>15?'> 15':'≤ 15')+').');}
-R.dataset.n=n;$('#cat').textContent=cat;$('#rot').textContent=rot;$('#det').innerHTML='<ul>'+det.map(x=>'<li>'+x+'</li>').join('')+'</ul>';
-$('#resumo').textContent='Estratificação de quedas (World Falls Guidelines 2022): '+cat+'. '+rot+' Conduta: '+det.join(' ');}
-document.addEventListener('input',e=>{if(e.target.closest('#casa'))casa();else calc()});
+if(tug!==null)det.push('TUG: '+String(tug).replace('.',',')+' s ('+(tug>15?'> 15':'≤ 15')+').');
+if(tug!==null&&vm!==null&&((tug>15)!==(vm<0.8)))det.push('Os dois testes discordam: a página considera alterado se qualquer um estiver alterado.');}
+return {cat,rot,n,det}}
+function calc(e){
+if(e&&e.target&&e.target.name==='k'&&e.target.checked){if(e.target.value==='nenhuma')$$('input[name=k]').forEach(x=>{if(x.value!=='nenhuma')x.checked=false});else{const z=$('input[name=k][value=nenhuma]');if(z)z.checked=false}}
+const kTodos=$$('input[name=k]:checked').map(x=>x.value),nenhuma=kTodos.includes('nenhuma'),k=kTodos.filter(x=>x!=='nenhuma'),g=$$('input[name=g]:checked').map(x=>x.value);
+const erros=[];let tug=num('#tug',erros),vm=num('#vm',erros),t4=num('#t4',erros);if(vm===null&&t4!==null)vm=4/t4;
+const R=$('#res');
+if(!k.length&&!nenhuma&&!g.length){R.dataset.n='';$('#cat').textContent='—';$('#rot').textContent='Responda às perguntas acima.';$('#det').innerHTML=erros.length?'<ul>'+erros.map(x=>'<li>'+x+'</li>').join('')+'</ul>':'';$('#resumo').textContent='';return}
+const r=classifica(k,g,tug,vm);const det=r.det.slice();
+if(g.length&&!k.includes('caiu'))det.unshift('Sinal de gravidade marcado sem “caiu nos últimos 12 meses”: a página assumiu que houve queda. Confira.');
+erros.forEach(x=>det.push(x));
+R.dataset.n=r.n;$('#cat').textContent=r.cat;$('#rot').textContent=r.rot;$('#det').innerHTML='<ul>'+det.map(x=>'<li>'+x+'</li>').join('')+'</ul>';
+$('#resumo').textContent='Estratificação de quedas (World Falls Guidelines 2022): '+r.cat+'. '+r.rot+' Conduta: '+r.det.join(' ');}
+document.addEventListener('input',e=>{if(e.target.closest('#casa'))casa();else calc(e)});
 function casa(){const v=$$('#casa input:checked').map(x=>x.value);$('#casalista').innerHTML=v.length?v.map(x=>'<li>'+x+'</li>').join(''):'<li>Nenhum item marcado.</li>'}
 calc();
 </script>
