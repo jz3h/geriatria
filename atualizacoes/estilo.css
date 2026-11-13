@@ -1,0 +1,32 @@
+*{box-sizing:border-box}html{-webkit-text-size-adjust:100%}
+:root{--papel:#F7F5F0;--cartao:#fff;--tinta:#10233F;--fraca:#55657E;--linha:#E2DDD3;--magenta:#CE0058;--azul:#0057B7;color-scheme:light}
+@media(prefers-color-scheme:dark){:root:not([data-theme=light]){--papel:#0D1522;--cartao:#152034;--tinta:#E9EEF6;--fraca:#A0AFC6;--linha:#26344C;--magenta:#FF4D93;--azul:#6FA8FF;color-scheme:dark}}
+body{margin:0;background:var(--papel);color:var(--tinta);font:17px/1.6 "Atkinson Hyperlegible","Segoe UI",system-ui,sans-serif;overflow-x:hidden}
+.gut{padding-inline:max(16px,env(safe-area-inset-left,0px))}.wrap{max-width:720px;margin:0 auto}
+header{border-bottom:1px solid var(--linha)}header .wrap{padding-block:24px 18px}
+.kick{margin:0;font-size:12px;font-weight:700;letter-spacing:.13em;text-transform:uppercase;color:var(--magenta)}
+h1{margin:7px 0 0;font-size:clamp(23px,5.6vw,31px);line-height:1.18;letter-spacing:-.02em;text-wrap:balance}
+.lede{margin:11px 0 0;color:var(--fraca);max-width:62ch}
+main .wrap{padding-block:18px 40px}
+h2{font-size:13px;font-weight:700;letter-spacing:.13em;text-transform:uppercase;color:var(--magenta);margin:30px 0 10px}
+a{color:var(--azul);text-underline-offset:3px}
+.card{background:var(--cartao);border:1px solid var(--linha);border-radius:14px;padding:16px 18px;margin:12px 0}
+.card.fer{border-left:4px solid var(--azul)}
+ol.refs{margin:0;padding-left:1.35em}ol.refs li{margin-bottom:13px;font-size:15.5px;line-height:1.5}
+ol.refs .lk{display:inline-flex;gap:10px;margin-top:3px;font-size:13.5px}
+.chip{display:inline-block;padding:2px 9px;border:1px solid var(--linha);border-radius:99px;text-decoration:none;font-weight:600}
+.bt{display:inline-block;padding:12px 20px;border-radius:10px;background:var(--azul);color:#fff;text-decoration:none;font-weight:600;min-height:48px;line-height:24px}
+footer{border-top:1px solid var(--linha);margin-top:36px}footer .wrap{padding-block:18px 44px;color:var(--fraca);font-size:13.5px}
+footer p{margin:0 0 7px;max-width:64ch}
+ol.refs .mud{display:block;margin:3px 0 2px}
+ol.refs .mud b{color:var(--magenta);font-weight:700}
+ol.refs .vanc{display:block;color:var(--fraca);font-size:14.5px;line-height:1.45;margin-top:2px}
+.volta{display:inline-block;font-size:14px;color:var(--fraca);text-decoration:none;font-weight:600;margin-bottom:2px}
+ul.temas{list-style:none;padding:0;margin:0}
+ul.temas li{padding:13px 0;border-top:1px solid var(--linha)}
+ul.temas li:first-child{border-top:0}
+ul.temas a{font-weight:700;font-size:17.5px}
+ul.temas p{margin:3px 0 0;color:var(--fraca);font-size:15px}
+.qtd{color:var(--fraca);font-size:13px;font-variant-numeric:tabular-nums}
+.aviso{font-size:14.5px;background:var(--cartao);border:1px solid var(--linha);border-radius:12px;padding:12px 14px;margin:14px 0}
+.aviso b{color:var(--tinta)}
